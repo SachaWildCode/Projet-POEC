@@ -12,6 +12,8 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "sourceMap": true,
+    "noImplicitAny": true,
+    "strictPropertyInitialization": true,
     "declaration": false,
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
@@ -19,7 +21,11 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": ["ES2022", "dom"]
+    "lib": ["ES2022", "dom"],
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitThis": true,
+    "forceConsistentCasingInFileNames": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

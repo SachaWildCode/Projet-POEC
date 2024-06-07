@@ -14,4 +14,4 @@ RUN mkdir /app
 COPY --from=build-stage /app/dist/PROJET-POEC /app
 COPY nginx.conf /etc/nginx/nginx.conf
 
-EXPOSE 80
+EXPOSE 80   
