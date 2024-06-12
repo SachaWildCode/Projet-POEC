@@ -31,7 +31,6 @@ module.exports = tseslint.config(
       ...angular.configs.tsRecommended,
       eslintPluginPrettierRecommended,
     ],
-
     // Set the custom processor which will allow us to have our inline Component templates extracted
     // and treated as if they are HTML files (and therefore have the .html config below applied to them)
     processor: angular.processInlineTemplates,
@@ -59,6 +58,7 @@ module.exports = tseslint.config(
           allow: ['warn', 'error'],
         },
       ],
+      '@typescript-eslint/no-extraneous-class': 'warn',
     },
   },
   {
