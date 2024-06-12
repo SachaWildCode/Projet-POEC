@@ -1,0 +1,19 @@
+.background {
+  background-image: url('../../public/background.svg');
+  background-repeat: no-repeat;
+  z-index: -1;
+  position: absolute;
+  height: 50vh;
+  width: 100%;
+  background-position: 33%;
+  background-size: 150%;
+  image-rendering: pixelated;
+}
+.glass {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  min-height: 100vh;
+  backdrop-filter: blur(40px) saturate(140%);
+  background-color: rgba(0, 100, 42, 0.1);
+}
