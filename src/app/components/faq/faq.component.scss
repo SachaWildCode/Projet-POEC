@@ -1,0 +1,44 @@
+.faq {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    flex : 1
+}
+
+.container {
+    display: flex;
+    border: 0.15rem solid black;
+    border-right: 0rem;
+    border-left: 0rem;
+    width: 675px;
+    justify-content: space-between;
+}
+
+.fleche {
+    display: flex;
+    background-color: white;
+    width: 5%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    background-color: #000;
+    color: #FFF;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+.arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 20px solid white; 
+}
+

@@ -1,0 +1,17 @@
+<div class="faq">
+    @for (i of questionList; track i) {
+        <app-question [questionInput]="i"></app-question>
+    }
+    
+    <div class="container">
+        <div class="question">
+            <h3> {{derniere_question}}</h3>
+        </div>
+        <div class="fleche">
+            <button>
+                <div class="arrow-right"></div>
+            </button>
+        </div>
+
+    </div>
+</div>
