@@ -20,6 +20,7 @@ module.exports = tseslint.config(
     },
     // Everything in this config object targets our TypeScript files (Components, Directives, Pipes etc)
     files: ['**/*.ts'],
+    ignores: ['**/*.spec.ts'], // Add this line to ignore .spec.ts files
     extends: [
       // Apply the recommended core rules
       eslint.configs.recommended,
