@@ -78,3 +78,35 @@ button {
   box-shadow: var(--button-box-shadow);
   font-weight: var(--font-weight-bold);
 }
+@keyframes clickEffect {
+  0% {
+    transform: scale(1);
+    margin-top: 0;
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9);
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes expandHeight {
+  0% {
+    margin-top: 40px;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
