@@ -18,3 +18,12 @@
   backdrop-filter: blur(40px) saturate(140%);
   background-color: rgba(0, 100, 42, 0.1);
 }
+@media screen and (max-width: 768px) {
+  app-navbar {
+    position: fixed !important;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+  }
+}
