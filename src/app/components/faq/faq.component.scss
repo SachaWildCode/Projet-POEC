@@ -52,29 +52,16 @@ main {
   }
 }
 details > summary {
-  list-style: none;
   position: relative;
   cursor: pointer;
 }
 summary::-webkit-details-marker {
-  display: none;
 }
 
-summary::after {
-  content: '\25B6';
-  position: absolute;
-  right: 0;
-  transform: rotate(0deg);
-  transition: transform 0.3s ease;
-}
-
-details[open] summary::after {
-  transform: rotate(90deg);
-}
 @media (max-width: 600px) {
   main {
     section {
-      width: 90%;
+      width: 100%;
     }
   }
 }

@@ -13,7 +13,7 @@
   --font-size-h3: 1.954rem; /* 31.2px */
   --font-size-h4: 1.563rem; /* 24.96px */
   --font-size-h5: 1.25rem; /* 20px */
-  --font-size-normal: %;
+  --font-size-normal: 100%;
   --font-size-small: 0.8rem; /* 12.8px */
   --button-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   --color-white: #ffffff;
@@ -30,7 +30,6 @@ body {
   min-height: 100vh;
   background-color: var(--background-color);
   font-family: var(--font-family-inter);
-  text-shadow: var(--text-shadow);
   font-weight: var(--font-weight-lighter);
 }
 
@@ -41,11 +40,13 @@ app-root {
 @import url('https://fonts.googleapis.com/css?family=League%20Spartan|Inter');
 
 h1,
+h2,
 h3,
 h4,
 h5 {
   font-family: var(--font-family-league-spartan);
   font-weight: var(--font-weight-700);
+  // text-shadow: var(--text-shadow);
 }
 
 html {
@@ -114,26 +115,51 @@ button {
     padding-bottom: calc(52px + 2rem); // for navbar
   }
   h1 {
-    font-size: 2.489rem; /* 39.84px */
+    font-size: calc(var(--font-size-h1) * 0.9);
   }
 
   h2 {
-    font-size: 2.074rem; /* 33.12px */
+    font-size: calc(var(--font-size-h2) * 0.9);
   }
 
   h3 {
-    font-size: 1.728rem; /* 27.68px */
+    font-size: calc(var(--font-size-h3) * 0.9);
   }
 
   h4 {
-    font-size: 1.44rem; /* 23.04px */
+    font-size: calc(var(--font-size-h4) * 0.9);
   }
 
   h5 {
-    font-size: 1.2rem; /* 19.2px */
+    font-size: calc(var(--font-size-h5) * 0.9);
   }
 
   small {
-    font-size: 0.833rem; /* 13.28px */
+    font-size: calc(var(--font-size-small) * 0.9);
+  }
+}
+@media (max-width: 576px) {
+  h1 {
+    font-size: calc(var(--font-size-h1) * 0.7);
+  }
+
+  h2 {
+    font-size: calc(var(--font-size-h2) * 0.7);
+  }
+
+  h3 {
+    font-size: calc(var(--font-size-h3) * 0.7);
+  }
+
+  h4 {
+    font-size: calc(var(--font-size-h4) * 0.7);
+  }
+
+  h5 {
+    font-size: calc(var(--font-size-h5) * 0.7);
+  }
+
+  small {
+    font-size: calc(var(--font-size-small) * 0.7);
   }
 }

@@ -16,7 +16,7 @@ main {
   h2 {
     margin-bottom: 1rem;
     text-align: center;
-    width: 55%;
+    width: 60%;
     color: var(--color-white);
     font-weight: 300;
     animation: slideIn 1s ease-in-out forwards;
@@ -78,4 +78,11 @@ main {
 section:has(.learn-more:hover) .give-now {
   background-color: var(--color-white);
   color: var(--color-black);
+}
+@media (max-width: 798px) {
+  main {
+    h2 {
+      width: 90%;
+    }
+  }
 }
