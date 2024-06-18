@@ -1,0 +1,46 @@
+main {
+  position: fixed !important;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  width: 90%;
+  margin: 0 auto;
+  text-shadow: none;
+
+  section {
+    border-radius: 8px 8px 0 0;
+    box-shadow: var(--button-box-shadow);
+    padding: 0.5rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--navbar-bg-color);
+    ul {
+      flex-grow: 1;
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      li {
+        list-style: none;
+        border-radius: 8px;
+        cursor: pointer;
+        a {
+          border-radius: 8px;
+          display: block;
+          padding: 0.5rem 1rem;
+          text-decoration: none;
+          color: #000;
+          font-weight: bold;
+          &:active {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+}
+.is-active {
+  background-color: var(--color-white);
+}
