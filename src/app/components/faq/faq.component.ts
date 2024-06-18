@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-faq',
@@ -7,34 +7,18 @@ import { Component, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
   templateUrl: './faq.component.html',
   styleUrls: ['./faq.component.scss'],
 })
-export class FaqComponent implements AfterViewInit, OnDestroy {
-  private detailsElements!: NodeListOf<HTMLDetailsElement>;
-  private eventListeners: (() => void)[] = [];
-
-  constructor(private el: ElementRef) {}
+export class FaqComponent implements AfterViewInit {
+  constructor(private renderer: Renderer2) {}
 
   ngAfterViewInit() {
-    this.detailsElements = (this.el.nativeElement as HTMLElement).querySelectorAll('details');
-    this.detailsElements.forEach((details: HTMLDetailsElement) => {
-      const toggleListener = () => {
-        if (details.open) {
-          this.detailsElements.forEach((otherDetails: HTMLDetailsElement) => {
-            if (otherDetails !== details) {
-              otherDetails.open = false;
-            }
-          });
+    const paragraphs = document.querySelectorAll('details p');
+    paragraphs.forEach(p => {
+      this.renderer.listen(p, 'click', () => {
+        const details = p.closest('details');
+        if (details) {
+          this.renderer.removeAttribute(details, 'open');
         }
-      };
-      details.addEventListener('toggle', toggleListener);
-      this.eventListeners.push(() => {
-        details.removeEventListener('toggle', toggleListener);
       });
-    });
-  }
-
-  ngOnDestroy() {
-    this.eventListeners.forEach(removeListener => {
-      removeListener();
     });
   }
 }

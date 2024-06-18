@@ -1,11 +1,23 @@
 <main>
   <section>
     <ul>
-      <li><a [routerLink]="['/home']" [routerLinkActive]="['is-active']">Accueil</a></li>
-      <li><a [routerLink]="['/asso']" [routerLinkActive]="['is-active']">Association</a></li>
-      <li><a [routerLink]="['/faq']" [routerLinkActive]="['is-active']">FAQ</a></li>
-      <li><a [routerLink]="['/transparency']" [routerLinkActive]="['is-active']">Transparence</a></li>
-      <li><a [routerLink]="['/auth/login']">Login</a></li>
+      <li>
+        <a [routerLink]="['/home']" [routerLinkActive]="['is-active']"><fa-icon [icon]="faHouse"></fa-icon></a>
+      </li>
+      <li>
+        <a [routerLink]="['/asso']" [routerLinkActive]="['is-active']"
+          ><fa-icon [icon]="faMagnifyingGlass"></fa-icon
+        ></a>
+      </li>
+      <li>
+        <a [routerLink]="['/faq']" [routerLinkActive]="['is-active']"><fa-icon [icon]="faQuestion"></fa-icon></a>
+      </li>
+      <li>
+        <a [routerLink]="['/transparency']" [routerLinkActive]="['is-active']"><fa-icon [icon]="faEye"></fa-icon></a>
+      </li>
+      <li>
+        <a [routerLink]="['/auth/login']"><fa-icon [icon]="faUser"></fa-icon> </a>
+      </li>
     </ul>
   </section>
 </main>

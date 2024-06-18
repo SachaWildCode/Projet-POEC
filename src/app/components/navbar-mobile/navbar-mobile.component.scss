@@ -4,7 +4,6 @@ main {
   right: 0;
   bottom: 0;
   z-index: 100;
-  width: 90%;
   margin: 0 auto;
   text-shadow: none;
 
@@ -12,7 +11,6 @@ main {
     border-radius: 8px 8px 0 0;
     box-shadow: var(--button-box-shadow);
     padding: 0.5rem;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,7 +27,7 @@ main {
         a {
           border-radius: 8px;
           display: block;
-          padding: 0.5rem 1rem;
+          padding: 0.7rem 1rem;
           text-decoration: none;
           color: #000;
           font-weight: bold;
@@ -42,5 +40,5 @@ main {
   }
 }
 .is-active {
-  background-color: var(--color-white);
+  background-color: #e0e0e0;
 }

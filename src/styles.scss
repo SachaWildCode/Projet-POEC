@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
   --background-color: #fcd6d6;
-  --navbar-bg-color: #e0e0e0;
+  --navbar-bg-color: #ffffff;
   --text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   --font-family-inter: 'Inter', sans-serif;
   --font-family-league-spartan: 'League Spartan', sans-serif;
@@ -13,6 +13,7 @@
   --font-size-h3: 1.954rem; /* 31.2px */
   --font-size-h4: 1.563rem; /* 24.96px */
   --font-size-h5: 1.25rem; /* 20px */
+  --font-size-normal: %;
   --font-size-small: 0.8rem; /* 12.8px */
   --button-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   --color-white: #ffffff;
@@ -48,7 +49,7 @@ h5 {
 }
 
 html {
-  font-size: 100%; /* 16px */
+  font-size: var(--font-size-normal);
 }
 
 h1 {
@@ -109,31 +110,30 @@ button {
 }
 
 @media (max-width: 992px) {
-  h1 {
-    font-size: calc(var(--font-size-h1) / 2);
-  }
-  h2 {
-    font-size: calc(var(--font-size-h2) / 2);
-  }
-  h3 {
-    font-size: calc(var(--font-size-h3) / 2);
-  }
-  h4 {
-    font-size: calc(var(--font-size-h4) / 2);
-  }
-  h5 {
-    font-size: calc(var(--font-size-h5) / 2);
-  }
-  small {
-    font-size: calc(var(--font-size-small) / 2);
-  }
-  a,
-  p,
-  button {
-    font-size: calc(1.5rem / 2);
-  }
   body {
-    font-size: calc(var(--font-size-small) * 0.8);
-    padding-bottom: calc(52px + 1rem); // for navbar
+    padding-bottom: calc(52px + 2rem); // for navbar
+  }
+  h1 {
+    font-size: 2.489rem; /* 39.84px */
+  }
+
+  h2 {
+    font-size: 2.074rem; /* 33.12px */
+  }
+
+  h3 {
+    font-size: 1.728rem; /* 27.68px */
+  }
+
+  h4 {
+    font-size: 1.44rem; /* 23.04px */
+  }
+
+  h5 {
+    font-size: 1.2rem; /* 19.2px */
+  }
+
+  small {
+    font-size: 0.833rem; /* 13.28px */
   }
 }
