@@ -3,7 +3,7 @@
   background-color: #c62d6b;
   background-repeat: no-repeat;
   z-index: -1;
-  position: absolute;
+  position: fixed;
   height: 50vh;
   width: 100%;
   background-position: 33%;
@@ -11,7 +11,7 @@
   image-rendering: pixelated;
 }
 .glass {
-  position: absolute;
+  position: fixed;
   z-index: -1;
   width: 100%;
   min-height: 100vh;

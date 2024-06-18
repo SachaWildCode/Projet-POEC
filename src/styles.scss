@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-  --background-color: #fbe6e6;
+  --background-color: #fcd6d6;
   --text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   --font-family-inter: 'Inter', sans-serif;
   --font-family-league-spartan: 'League Spartan', sans-serif;
@@ -125,5 +125,8 @@ button {
   }
   small {
     font-size: calc(var(--font-size-small) / 2);
+  }
+  body {
+    font-size: calc(var(--font-size-small) * 0.8);
   }
 }

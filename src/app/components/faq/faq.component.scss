@@ -1,17 +1,19 @@
 main {
+  overflow: hidden;
   section {
     width: 70%;
     margin: 0 auto;
     padding-top: 2rem;
-    h1 {
+    h2 {
       margin-bottom: 1rem;
       text-align: center;
       color: var(--color-white);
       animation: slideIn 1s ease-in-out forwards;
       opacity: 0;
     }
-    h2 {
+    h3 {
       margin-bottom: 1rem;
+
       a {
         text-decoration: underline;
         color: var(--color-white);
@@ -57,4 +59,11 @@ summary::after {
 
 details[open] summary::after {
   transform: rotate(90deg);
+}
+@media (max-width: 600px) {
+  main {
+    section {
+      width: 90%;
+    }
+  }
 }
