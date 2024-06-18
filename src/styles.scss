@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-  --background-color: #fbe6e6;
+  --background-color: #fcd6d6;
   --navbar-bg-color: #e0e0e0;
   --text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   --font-family-inter: 'Inter', sans-serif;
@@ -131,5 +131,8 @@ button {
   p,
   button {
     font-size: calc(1.5rem / 2);
+  }
+  body {
+    font-size: calc(var(--font-size-small) * 0.8);
   }
 }
