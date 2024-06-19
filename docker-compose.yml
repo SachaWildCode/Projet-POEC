@@ -1,7 +1,21 @@
-version: '3.8'
-
 services:
-  app:
+  heartlink:
     image: sachawildcode/projet-poec:latest
-    ports:
-      - '80:80'
+    networks:
+      - heartlink_network
+    container_name: heartlink
+    restart: unless-stopped
+  cloudflare:
+    image: cloudflare/cloudflared
+    container_name: heartlink-cloudflare
+    command: tunnel run
+    environment:
+      - TUNNEL_TOKEN=$TUNNEL_TOKEN
+    restart: unless-stopped
+    networks:
+      - heartlink_network
+    env_file:
+      - .env
+networks:
+  heartlink_network:
+    name: heartlink_network
