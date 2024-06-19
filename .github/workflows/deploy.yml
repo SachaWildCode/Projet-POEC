@@ -35,6 +35,6 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         passphrase: ${{ secrets.SSH_PASSPHRASE }}
-      script: |
+        script: |
         docker pull sachawildcode/projet-poec:latest &&
         docker-compose up -d --force-recreate
