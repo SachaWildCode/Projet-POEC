@@ -2,8 +2,6 @@ version: '3.8'
 
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: sachawildcode/projet-poec:latest
     ports:
       - '80:80'
