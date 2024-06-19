@@ -18,10 +18,10 @@ export const routes: Routes = [
       },
     ],*/
   },
-  { path: 'home', component: LandingPageComponent },
+  { path: '', component: LandingPageComponent },
   { path: 'faq', component: FaqPageComponent },
   { path: 'asso', component: AssoPageComponent },
   { path: 'transparency', component: TransparencyPageComponent },
   { path: 'profile', component: UserPageComponent },
-  { path: '**', redirectTo: 'home' },
+  { path: '**', redirectTo: '' },
 ];

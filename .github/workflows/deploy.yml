@@ -37,4 +37,4 @@ jobs:
         passphrase: ${{ secrets.SSH_PASSPHRASE }}
         script: |
           docker pull sachawildcode/projet-poec:latest &&
-          docker-compose up -d --force-recreate
+          docker compose up -d --force-recreate

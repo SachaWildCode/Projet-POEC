@@ -3,7 +3,11 @@
     <section><h1>HeartLink</h1></section>
     <section>
       <ul>
-        <li><a [routerLink]="['/home']" [routerLinkActive]="['is-active']">Accueil</a></li>
+        <li>
+          <a [routerLink]="['']" [routerLinkActive]="['is-active']" [routerLinkActiveOptions]="{ exact: true }"
+            >Accueil</a
+          >
+        </li>
         <li><a [routerLink]="['/asso']" [routerLinkActive]="['is-active']">Association</a></li>
         <li><a [routerLink]="['/faq']" [routerLinkActive]="['is-active']">FAQ</a></li>
         <li><a [routerLink]="['/transparency']" [routerLinkActive]="['is-active']">Transparence</a></li>
