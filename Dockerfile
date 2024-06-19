@@ -11,10 +11,16 @@ RUN npm install -g pnpm && \
 FROM nginx:stable
 
 COPY --from=build-stage /app/dist/PROJET-POEC/browser /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Create a non-root user and use it
-RUN adduser -D -H -s /bin/bash nginxuser
+RUN groupadd -r nginxuser && useradd -r -g nginxuser nginxuser
+
+# Create necessary directories and set permissions
+RUN mkdir -p /var/cache/nginx/client_temp && \
+    chown -R nginxuser:nginxuser /var/cache/nginx
+
+# Switch to the new user
 USER nginxuser
 
 EXPOSE 80   
