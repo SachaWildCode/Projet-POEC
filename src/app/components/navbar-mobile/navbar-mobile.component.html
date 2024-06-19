@@ -2,7 +2,9 @@
   <section>
     <ul>
       <li>
-        <a [routerLink]="['/home']" [routerLinkActive]="['is-active']"><fa-icon [icon]="faHouse"></fa-icon></a>
+        <a [routerLink]="['']" [routerLinkActive]="['is-active']" [routerLinkActiveOptions]="{ exact: true }"
+          ><fa-icon [icon]="faHouse"></fa-icon
+        ></a>
       </li>
       <li>
         <a [routerLink]="['/asso']" [routerLinkActive]="['is-active']"
