@@ -1,22 +1,19 @@
 <main>
-  <form [formGroup]="loginForm">
-    <section>img here</section>
-    <section>
-      <label>
-        Email:
-        <input type="email" formControlName="email" />
-      </label>
-      <br />
-      <label>
-        Mot de passe:
-        <input type="password" formControlName="password" />
-      </label>
-      <label
-        >Se souvenir de moi
-        <input type="checkbox" formControlName="rememberMe" />
-      </label>
-      <br />
-      <button type="submit">Se connecter</button>
-    </section>
-  </form>
+  <section>
+    <h1>Login</h1>
+    <img src="" alt="" />
+  </section>
+  <section>
+    <form>
+      <div>
+        <label for="email">Email</label>
+        <input type="text" placeholder="Email" />
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" />
+      </div>
+      <button>Login</button>
+    </form>
+  </section>
 </main>

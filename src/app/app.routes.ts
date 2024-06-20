@@ -9,18 +9,18 @@ import { TransparencyPageComponent } from './pages/transparency-page/transparenc
 import { UserPageComponent } from './pages/user-page/user-page.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { CardComponent } from './components/card/card.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 export const routes: Routes = [
   {
     path: 'auth',
     component: AuthPageComponent,
-    /*children: [
-      { path: 'login', loadComponent: () => import('./pages/auth-page/login.component').then(m => m.LoginComponent) },
+    children: [
       {
-        path: 'register',
-        loadComponent: () => import('./pages/auth-page/register.component').then(m => m.RegisterComponent),
+        path: 'login',
+        component: LoginFormComponent,
       },
-    ],*/
+    ],
   },
   { path: 'auth', component: AuthPageComponent },
   { path: '', component: LandingPageComponent },
