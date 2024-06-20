@@ -1,0 +1,22 @@
+<main>
+  <form [formGroup]="loginForm">
+    <section>img here</section>
+    <section>
+      <label>
+        Email:
+        <input type="email" formControlName="email" />
+      </label>
+      <br />
+      <label>
+        Mot de passe:
+        <input type="password" formControlName="password" />
+      </label>
+      <label
+        >Se souvenir de moi
+        <input type="checkbox" formControlName="rememberMe" />
+      </label>
+      <br />
+      <button type="submit">Se connecter</button>
+    </section>
+  </form>
+</main>
