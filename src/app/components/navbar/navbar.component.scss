@@ -8,6 +8,7 @@ main {
   div {
     flex-shrink: 0;
     flex-basis: 90%;
+    min-width: 798px;
     box-shadow: var(--button-box-shadow);
     padding: 0.5rem;
     border-radius: 8px;
@@ -31,7 +32,6 @@ main {
           list-style: none;
           border-radius: 8px;
           cursor: pointer;
-          margin: 0 0.5rem;
           a {
             border-radius: 8px;
             display: block;

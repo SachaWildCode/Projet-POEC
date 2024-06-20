@@ -3,13 +3,12 @@ main {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 5.6rem);
-  padding: 5rem 10rem 5rem 10rem;
+  padding: 4rem 10rem 5rem 10rem;
 }
 
 section {
   text-align: center;
-  min-width: 400px;
+  min-width: calc(798px / 2);
   background-color: var(--color-white);
   border-radius: 8px 0 0 8px;
   min-height: 400px;
@@ -17,7 +16,6 @@ section {
   box-shadow: var(--button-box-shadow);
   position: relative;
   overflow: hidden; // Add this line
-
   &:last-of-type {
     border-radius: 0 8px 8px 0;
   }
@@ -47,7 +45,6 @@ form {
   flex-direction: column;
   align-items: center;
   padding: 3rem;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
   gap: 1rem;
   justify-content: center;
   flex: 1;
@@ -108,9 +105,9 @@ button {
 
 @media (max-width: 798px) {
   main {
-    align-items: center;
-    justify-content: center;
-
+    position: absolute;
+    width: 100%;
+    height: 100%;
     section:first-of-type {
       visibility: none;
       display: none;
@@ -120,11 +117,11 @@ button {
       align-items: center;
       justify-content: center;
       display: flex;
-      min-width: 576px;
+      min-width: 376px;
       flex: 1;
       border-radius: 8px;
       background-color: transparent;
-      form {
+      p form {
         box-shadow: none;
         padding: 2rem;
         flex: 1;
@@ -143,9 +140,6 @@ button {
 }
 @media (max-width: 576px) {
   main {
-    position: absolute;
-    width: 100%;
-    height: 80%;
     padding: 0;
     section {
       box-shadow: none;
