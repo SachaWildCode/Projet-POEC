@@ -83,7 +83,7 @@ button:hover {
         background-color: rgb(255, 0, 0);
         padding: 2rem;
         flex: 1;
-        min-height: 80%;
+        min-height: 100%;
         div {
           input {
             min-width: 0;
@@ -101,8 +101,9 @@ button:hover {
     padding: 0;
     section {
       min-width: initial;
+      padding: 0;
       form {
-        padding: 1rem;
+        min-height: 100%;
         div {
           input {
             width: 100%;
