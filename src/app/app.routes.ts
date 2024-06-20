@@ -5,18 +5,18 @@ import { FaqPageComponent } from './pages/faq-page/faq-page.component';
 import { AssoPageComponent } from './pages/asso-page/asso-page.component';
 import { TransparencyPageComponent } from './pages/transparency-page/transparency-page.component';
 import { UserPageComponent } from './pages/user-page/user-page.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 export const routes: Routes = [
   {
     path: 'auth',
     component: AuthPageComponent,
-    /*children: [
-      { path: 'login', loadComponent: () => import('./pages/auth-page/login.component').then(m => m.LoginComponent) },
+    children: [
       {
-        path: 'register',
-        loadComponent: () => import('./pages/auth-page/register.component').then(m => m.RegisterComponent),
+        path: 'login',
+        component: LoginFormComponent,
       },
-    ],*/
+    ],
   },
   { path: '', component: LandingPageComponent },
   { path: 'faq', component: FaqPageComponent },

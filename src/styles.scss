@@ -139,6 +139,9 @@ button {
   }
 }
 @media (max-width: 576px) {
+  body {
+    padding-bottom: calc(52px + 2rem); // for navbar
+  }
   h1 {
     font-size: calc(var(--font-size-h1) * 0.7);
   }
