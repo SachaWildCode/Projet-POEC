@@ -4,16 +4,16 @@
     <img src="https://picsum.photos/200" alt="Random Image" />
   </section>
   <section>
-    <form>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div>
         <label for="email">Email</label>
-        <input type="text" placeholder="email" />
+        <input type="email" placeholder="email" formControlName="email" autocomplete="email" />
       </div>
       <div>
         <label for="password">Password</label>
-        <input type="password" placeholder="password" />
+        <input type="password" placeholder="password" formControlName="password" autocomplete="current-password" />
       </div>
-      <button>Login</button>
+      <button type="submit">Login</button>
     </form>
   </section>
 </main>
