@@ -21,18 +21,28 @@ main {
       justify-content: space-around;
       width: 100%;
       li {
+        min-width: 45px;
         list-style: none;
         border-radius: 8px;
         cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         a {
           border-radius: 8px;
-          display: block;
-          padding: 0.7rem 1rem;
           text-decoration: none;
           color: #000;
           font-weight: bold;
+          padding: 0.5rem;
           &:active {
             transform: scale(1.1);
+          }
+          fa-icon {
+            font-size: 1.5rem;
+            width: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
         }
       }

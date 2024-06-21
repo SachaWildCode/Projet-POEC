@@ -14,8 +14,12 @@ export class LoginFormComponent {
 
   constructor(private fb: FormBuilder) {
     this.loginForm = this.fb.group({
-      username: new FormControl(''),
+      email: new FormControl(''),
       password: new FormControl(''),
     });
+  }
+
+  onSubmit() {
+    console.warn(this.loginForm.value);
   }
 }

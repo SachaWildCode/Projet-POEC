@@ -149,9 +149,11 @@ button {
 
       form {
         min-height: 100%;
+        padding: 10%;
         div {
           input {
             width: 100%;
+            min-width: 200px;
           }
         }
       }
