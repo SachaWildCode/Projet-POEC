@@ -1,19 +1,46 @@
+<h1>Connexion à HeartLink</h1>
+<h2>Veuillez entrer vos identifiants pour accéder à votre compte HeartLink.</h2>
 <main>
   <section>
-    <h1>Login</h1>
-    <img src="https://picsum.photos/200" alt="Random Image" />
-  </section>
-  <section>
+    <ng-container *ngFor="let message of messages; let i = index">
+      <div
+        class="carousel"
+        *ngIf="i === currentMessageIndex"
+        [ngStyle]="{ 'background-image': 'url(' + message.imageUrl + ')' }">
+        <h5>{{ message.title }}</h5>
+        <p>{{ message.text }}</p>
+      </div>
+    </ng-container>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div>
         <label for="email">Email</label>
         <input type="email" placeholder="email" formControlName="email" autocomplete="email" />
+        <ng-container *ngIf="loginForm.controls['email'].dirty">
+          <small *ngIf="loginForm.controls['email'].errors?.['required']">Email est requis</small>
+          <small *ngIf="loginForm.controls['email'].errors?.['email']">Email est invalide</small>
+        </ng-container>
       </div>
       <div>
         <label for="password">Password</label>
         <input type="password" placeholder="password" formControlName="password" autocomplete="current-password" />
+        <ng-container *ngIf="loginForm.controls['password'].dirty">
+          <ng-container *ngIf="loginForm.controls['password'].errors?.['required']">
+            <small>Le mot de passe est requis</small>
+          </ng-container>
+          <ng-container *ngIf="!loginForm.controls['password'].errors?.['required']">
+            <ng-container *ngFor="let error of loginForm.controls['password'].errors | keyvalue">
+              <small *ngIf="error.key !== 'required' && loginForm.controls['password'].errors?.[error.key]">
+                {{ error.value }}
+              </small>
+            </ng-container>
+          </ng-container>
+        </ng-container>
       </div>
-      <button type="submit">Login</button>
+      <div>
+        <label for="rememberMe">Se souvenir de moi</label>
+        <input type="checkbox" formControlName="rememberMe" />
+      </div>
+      <button type="submit">Connexion</button>
     </form>
   </section>
 </main>
