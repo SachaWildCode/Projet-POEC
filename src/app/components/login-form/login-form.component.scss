@@ -198,16 +198,6 @@ button {
           input:not([type='checkbox']) {
             min-width: 200px;
           }
-          &:last-of-type {
-            line-height: initial;
-            display: flex;
-            flex-direction: row-reverse;
-            align-items: center;
-            justify-content: flex-end;
-            label {
-              margin-left: 0.5rem;
-            }
-          }
         }
       }
     }
