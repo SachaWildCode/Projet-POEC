@@ -12,6 +12,7 @@ import { passwordValidator } from '../../shared/validators/password';
 })
 export class LoginFormComponent implements OnDestroy, AfterViewInit {
   loginForm: FormGroup;
+  showRequired = false;
   messages: { title: string; text: string; imageUrl: string }[] = [
     {
       title: 'Continuez à faire la différence',
@@ -62,6 +63,9 @@ export class LoginFormComponent implements OnDestroy, AfterViewInit {
   onSubmit(): void {
     if (this.loginForm.valid) {
       console.warn(this.loginForm.value);
+      this.showRequired = false;
+    } else {
+      this.showRequired = true;
     }
   }
 }
