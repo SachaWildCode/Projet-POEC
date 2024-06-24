@@ -1,6 +1,6 @@
 import { Component, OnDestroy, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { passwordValidator } from '../../shared/validators/password';
 
 @Component({
@@ -38,7 +38,10 @@ export class LoginFormComponent implements OnDestroy, AfterViewInit {
   currentMessageIndex = 0;
   private intervalId!: ReturnType<typeof setInterval>;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private location: Location
+  ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, passwordValidator]],
@@ -64,6 +67,7 @@ export class LoginFormComponent implements OnDestroy, AfterViewInit {
     if (this.loginForm.valid) {
       console.warn(this.loginForm.value);
       this.showRequired = false;
+      this.location.back();
     } else {
       this.showRequired = true;
     }
