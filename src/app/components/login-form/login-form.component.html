@@ -16,8 +16,8 @@
         <label for="email">Email</label>
         <input type="email" placeholder="email" formControlName="email" autocomplete="email" />
         <ng-container *ngIf="loginForm.controls['email'].dirty || showRequired">
-          <small *ngIf="loginForm.controls['email'].errors?.['required']">Email est requis</small>
-          <small *ngIf="loginForm.controls['email'].errors?.['email']">Email est invalide</small>
+          <small *ngIf="loginForm.controls['email'].errors?.['required']">Email est requis.</small>
+          <small *ngIf="loginForm.controls['email'].errors?.['email']">Email est invalide.</small>
         </ng-container>
       </div>
       <div>
