@@ -41,8 +41,8 @@
         <input type="checkbox" formControlName="rememberMe" />
       </div>
       <div class="links">
-        <a href="#"><small>Mot de passe oublié ?</small></a>
-        <a href="#"><small>Pas encore inscrit ? Inscris toi maintenant</small></a>
+        <a [routerLink]="['/auth/forgot-password']"><small>Mot de passe oublié ?</small></a>
+        <a [routerLink]="['/auth/register']"><small>Pas encore inscrit ? Inscris toi maintenant</small></a>
       </div>
       <button type="submit">Connexion</button>
     </form>
