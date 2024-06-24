@@ -15,7 +15,7 @@
       <div>
         <label for="email">Email</label>
         <input type="email" placeholder="email" formControlName="email" autocomplete="email" />
-        <ng-container *ngIf="loginForm.controls['email'].dirty">
+        <ng-container *ngIf="loginForm.controls['email'].dirty || showRequired">
           <small *ngIf="loginForm.controls['email'].errors?.['required']">Email est requis</small>
           <small *ngIf="loginForm.controls['email'].errors?.['email']">Email est invalide</small>
         </ng-container>
@@ -23,7 +23,7 @@
       <div>
         <label for="password">Password</label>
         <input type="password" placeholder="password" formControlName="password" autocomplete="current-password" />
-        <ng-container *ngIf="loginForm.controls['password'].dirty">
+        <ng-container *ngIf="loginForm.controls['password'].dirty || showRequired">
           <ng-container *ngIf="loginForm.controls['password'].errors?.['required']">
             <small>Le mot de passe est requis</small>
           </ng-container>
