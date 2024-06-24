@@ -27,9 +27,10 @@ section {
   justify-content: center;
   flex-wrap: nowrap;
   box-shadow: var(--button-box-shadow);
-  overflow: hidden;
   min-width: 798px;
+  overflow: hidden;
   .carousel {
+    position: relative;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -38,26 +39,20 @@ section {
       width: 100%;
       justify-self: center;
       position: absolute;
+      top: 50%;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, -50%);
       color: var(--color-white);
       backdrop-filter: blur(20px) saturate(140%);
       background-color: rgba(0, 100, 42, 0.1);
       text-shadow: 2px 2px 4px #000000;
       padding: 1rem;
     }
-
     h5 {
       top: 0;
+      transform: translate(-50%);
     }
   }
-}
-
-small {
-  color: red;
-  margin-top: 0.5rem;
-  display: block;
-  text-align: left;
 }
 
 form {
@@ -69,21 +64,38 @@ form {
   justify-content: center;
   padding: 3rem;
   min-height: 390px;
+  .links {
+    display: flex;
+    flex-direction: column;
+    a {
+      text-decoration: underline;
+      color: var(--color-black);
+      text-align: left;
+      width: 100%;
+      small {
+        color: var(--color-black);
+        text-align: left;
+        width: 100%;
+      }
+    }
+  }
+  .remember-me {
+    display: flex;
+    flex-direction: row;
+    line-height: initial;
+  }
 }
 
 div {
   width: 100%;
   position: relative;
   line-height: 1.5;
-  &:last-of-type {
-    line-height: initial;
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: flex-end;
-    label {
-      margin-left: 0.5rem;
-    }
+
+  small {
+    color: red;
+    margin-top: 0.5rem;
+    display: block;
+    text-align: left;
   }
 }
 
