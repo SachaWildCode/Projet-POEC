@@ -60,6 +60,12 @@ module.exports = tseslint.config(
         },
       ],
       '@typescript-eslint/no-extraneous-class': 'warn',
+      '@typescript-eslint/unbound-method': [
+        'error',
+        {
+          ignoreStatic: true,
+        },
+      ],
     },
   },
   {
