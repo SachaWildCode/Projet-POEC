@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Gender, IRegisterFormModel, StreetType } from '../../shared/models/iregister-form-model';
+import { IRegisterFormModel } from '../../shared/models/iregister-form-model';
+import { Gender, StreetType } from '../../shared/types';
 
 @Component({
   selector: 'app-register-form',
