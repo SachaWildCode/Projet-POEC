@@ -14,7 +14,7 @@ h2 {
   font-weight: 300;
 }
 main {
-  padding: 2rem 10rem 5rem 10rem;
+  padding: 2rem 20% 5rem 20%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,9 +27,11 @@ section {
   justify-content: center;
   flex-wrap: nowrap;
   box-shadow: var(--button-box-shadow);
-  min-width: 798px;
   overflow: hidden;
+  width: 100%;
+  min-width: 798px;
   .carousel {
+    flex: 1;
     position: relative;
     background-size: cover;
     background-position: center;

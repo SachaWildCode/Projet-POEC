@@ -1,0 +1,25 @@
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--color-white);
+}
+
+h2 {
+  text-align: center;
+  width: 80%;
+  color: var(--color-white);
+  font-weight: 300;
+}
+main {
+  padding: 1rem 20% 5rem 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-style: dashed;
+  section {
+    border-style: dashed;
+    width: 100%;
+    min-width: 798px;
+  }
+}

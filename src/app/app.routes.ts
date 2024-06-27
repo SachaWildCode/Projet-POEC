@@ -6,6 +6,7 @@ import { AssoPageComponent } from './pages/asso-page/asso-page.component';
 import { TransparencyPageComponent } from './pages/transparency-page/transparency-page.component';
 import { UserPageComponent } from './pages/user-page/user-page.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { RegisterFormComponent } from './components/register-form/register-form.component';
 
 export const routes: Routes = [
   {
@@ -15,6 +16,10 @@ export const routes: Routes = [
       {
         path: 'login',
         component: LoginFormComponent,
+      },
+      {
+        path: 'register',
+        component: RegisterFormComponent,
       },
     ],
   },
