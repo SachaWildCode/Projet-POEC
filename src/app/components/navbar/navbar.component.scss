@@ -10,7 +10,7 @@ main {
     flex-basis: 90%;
     min-width: 798px;
     box-shadow: var(--button-box-shadow);
-    border-radius: 8px;
+    border-radius: calc(0.2rem + 8px);
     display: flex;
     justify-content: space-between;
     align-items: center;
