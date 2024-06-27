@@ -10,17 +10,15 @@ main {
     flex-basis: 90%;
     min-width: 798px;
     box-shadow: var(--button-box-shadow);
-    padding: 0.5rem;
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: var(--navbar-bg-color);
-    gap: 2rem;
+    padding: 0.5rem;
     section {
       h1 {
         display: flex;
-        height: 100%;
         text-align: center;
         margin-bottom: -0.4rem;
       }
@@ -31,6 +29,8 @@ main {
         li {
           list-style: none;
           border-radius: 8px;
+          padding-left: 0.3rem;
+          padding-right: 0.3rem;
           cursor: pointer;
           a {
             border-radius: 8px;
