@@ -7,14 +7,14 @@ h1 {
 
 h2 {
   text-align: center;
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
   margin-bottom: 1rem;
   color: var(--color-white);
   font-weight: 300;
 }
 main {
-  padding: 2rem 20% 5rem 20%;
+  padding: 5rem 20% 1rem 20%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,30 +30,8 @@ section {
   overflow: hidden;
   width: 100%;
   min-width: 798px;
-  .carousel {
+  app-auth-carousel {
     flex: 1;
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    h5,
-    p {
-      width: 100%;
-      justify-self: center;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: var(--color-white);
-      backdrop-filter: blur(20px) saturate(140%);
-      background-color: rgba(0, 100, 42, 0.1);
-      text-shadow: 2px 2px 4px #000000;
-      padding: 1rem;
-    }
-    h5 {
-      top: 0;
-      transform: translate(-50%);
-    }
   }
 }
 
@@ -160,7 +138,7 @@ button {
       flex: 1;
       border-radius: 8px;
       background-color: transparent;
-      div.carousel {
+      app-auth-carousel {
         visibility: none;
         display: none;
       }

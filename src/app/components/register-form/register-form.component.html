@@ -1,12 +1,116 @@
 <main>
   <h1>S'enregistrer</h1>
-  <h2>Découvrez une manière simple et personnalisé de donner et de faire la différence.</h2>
+  <h2>Découvrez une manière simple et personnalisée de donner et de faire la différence.</h2>
   <section>
+    <app-auth-carousel *ngIf="currentStep < 4" />
     <div>
-      <img src="assets/images/register-form/register-form-image.png" alt="Image de connexion" />
-    </div>
-    <div>
-      <h3>Informations de connexion</h3>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <!-- Step 1: Account Information -->
+        <div *ngIf="currentStep === 1">
+          <h3>Informations du compte</h3>
+          <div formGroupName="account">
+            <div>
+              <label for="email">Email</label>
+              <input id="email" formControlName="email" type="email" placeholder="" />
+            </div>
+
+            <div>
+              <label for="password">Mot de passe</label>
+              <input id="password" formControlName="password" type="password" placeholder="" />
+            </div>
+
+            <div>
+              <label for="confirmPassword">Confirmer le mot de passe</label>
+              <input id="confirmPassword" formControlName="confirmPassword" type="password" placeholder="" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: User Information -->
+        <div *ngIf="currentStep === 2">
+          <h3>Informations de l'utilisateur</h3>
+          <div formGroupName="user">
+            <div>
+              <label for="firstName">Prénom</label>
+              <input id="firstName" formControlName="firstName" type="text" placeholder="" />
+            </div>
+
+            <div>
+              <label for="lastName">Nom</label>
+              <input id="lastName" formControlName="lastName" type="text" placeholder="" />
+            </div>
+
+            <div>
+              <label for="phone">Téléphone</label>
+              <input id="phone" formControlName="phone" type="text" placeholder="" />
+            </div>
+
+            <div>
+              <label for="birthDate">Date de naissance</label>
+              <input id="birthDate" formControlName="birthDate" type="date" placeholder="" />
+            </div>
+
+            <div>
+              <label for="gender">Genre</label>
+              <select id="gender" formControlName="gender">
+                <option *ngFor="let gender of genderOptions" [value]="gender">{{ gender }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Address Information -->
+        <div *ngIf="currentStep === 3">
+          <h3>Informations d'adresse</h3>
+          <div formGroupName="address">
+            <div>
+              <label for="street_type">Type de rue</label>
+              <select id="street_type" formControlName="street_type">
+                <option *ngFor="let type of streetTypeOptions" [value]="type">{{ type }}</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="street_number">Numéro de rue</label>
+              <input id="street_number" formControlName="street_number" type="text" placeholder="" />
+            </div>
+
+            <div>
+              <label for="street_name">Nom de rue</label>
+              <input id="street_name" formControlName="street_name" type="text" placeholder="" />
+            </div>
+
+            <div>
+              <label for="city">Ville</label>
+              <input id="city" formControlName="city" type="text" placeholder="" />
+            </div>
+
+            <div>
+              <label for="zipCode">Code postal</label>
+              <input id="zipCode" formControlName="zipCode" type="text" placeholder="" />
+            </div>
+
+            <div>
+              <label for="country">Pays</label>
+              <input id="country" formControlName="country" type="text" placeholder="" />
+            </div>
+
+            <div>
+              <label for="state">État</label>
+              <input id="state" formControlName="state" type="text" placeholder="" />
+            </div>
+          </div>
+        </div>
+        <div *ngIf="currentStep === 4">
+          <h3>Inscription réussie</h3>
+          <p>Merci pour votre inscription ! Votre inscription a été réussie.</p>
+        </div>
+
+        <div class="button-container">
+          <button *ngIf="currentStep > 1 && currentStep < 4" type="button" (click)="previousStep()">Précédent</button>
+          <button *ngIf="currentStep <= 3" type="submit">Valider</button>
+        </div>
+      </form>
     </div>
   </section>
 </main>

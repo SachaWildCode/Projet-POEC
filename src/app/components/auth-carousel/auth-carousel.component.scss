@@ -1,0 +1,32 @@
+div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  object-fit: cover;
+  background: 0 no-repeat;
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  h5,
+  p {
+    width: 100%;
+    text-align: center;
+    justify-self: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-white);
+    backdrop-filter: blur(20px) saturate(140%);
+    background-color: rgba(0, 100, 42, 0.1);
+    text-shadow: 2px 2px 4px #000000;
+    padding: 1rem;
+  }
+  h5 {
+    top: 0;
+    transform: translate(-50%);
+  }
+}

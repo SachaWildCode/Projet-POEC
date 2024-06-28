@@ -1,0 +1,9 @@
+<ng-container *ngFor="let message of messages; let i = index">
+  <div
+    class="carousel"
+    *ngIf="i === currentMessageIndex"
+    [ngStyle]="{ 'background-image': 'url(' + message.imageUrl + ')' }">
+    <h5>{{ message.title }}</h5>
+    <p>{{ message.text }}</p>
+  </div>
+</ng-container>

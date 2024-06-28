@@ -9,17 +9,130 @@ h2 {
   width: 80%;
   color: var(--color-white);
   font-weight: 300;
+  margin-bottom: 2rem;
 }
 main {
-  padding: 1rem 20% 5rem 20%;
+  padding: 0 20% 1rem 20%;
   display: flex;
+  flex: 1;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border-style: dashed;
   section {
-    border-style: dashed;
+    text-align: center;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    box-shadow: var(--button-box-shadow);
+    overflow: hidden;
     width: 100%;
     min-width: 798px;
+    app-auth-carousel {
+      flex: 1;
+    }
+    div {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        flex: 1;
+        padding: 3rem;
+        .button-container {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          button {
+            background-color: var(--color-black);
+            color: var(--color-white);
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            box-shadow: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            &:active {
+              transform: scale(1.1);
+            }
+          }
+        }
+        div {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          div {
+            div:has(> label + select) {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              margin-bottom: 0rem;
+              padding: 0.5rem;
+
+              label {
+                color: rgba(78, 77, 77, 0.7);
+                font-weight: bold;
+                font-size: 0.9rem;
+                top: 1rem;
+                left: 0;
+                text-align: left;
+                pointer-events: none;
+              }
+              select {
+                min-width: 0;
+                display: block;
+                padding: 0.5rem;
+              }
+            }
+
+            div:has(> label + input) {
+              width: 100%;
+              position: relative;
+              line-height: 1.5;
+
+              label {
+                color: rgba(78, 77, 77, 0.7);
+                font-weight: bold;
+                position: absolute;
+                font-size: 0.9rem;
+                top: 1rem;
+                left: 0;
+                text-align: left;
+                padding-left: 1rem;
+                pointer-events: none;
+                transition:
+                  top 0.2s,
+                  font-size 0.2s;
+                &:has(+ input:focus),
+                &:has(+ input:not(:placeholder-shown)) {
+                  top: 0rem;
+                  font-size: 0.7rem;
+                }
+              }
+              input:not([type='checkbox']) {
+                padding: 1rem 1rem 0.5rem;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                width: 100%;
+                min-width: 300px;
+                line-height: 1.5rem;
+                &::placeholder {
+                  color: transparent;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

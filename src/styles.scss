@@ -27,14 +27,9 @@
 }
 
 body {
-  min-height: 100vh;
   background-color: var(--background-color);
   font-family: var(--font-family-inter);
   font-weight: var(--font-weight-lighter);
-}
-
-app-root {
-  min-height: 100vh;
 }
 
 @import url('https://fonts.googleapis.com/css?family=League%20Spartan|Inter');
@@ -46,7 +41,6 @@ h4,
 h5 {
   font-family: var(--font-family-league-spartan);
   font-weight: var(--font-weight-700);
-  // text-shadow: var(--text-shadow);
 }
 
 html {
@@ -112,7 +106,7 @@ button {
 
 @media (max-width: 992px) {
   body {
-    padding-bottom: calc(52px + 2rem); // for navbar
+    padding-bottom: 3.5rem;
   }
   h1 {
     font-size: calc(var(--font-size-h1) * 0.9);
@@ -140,7 +134,7 @@ button {
 }
 @media (max-width: 576px) {
   body {
-    padding-bottom: calc(52px + 2rem); // for navbar
+    padding-bottom: 3.5rem;
   }
   h1 {
     font-size: calc(var(--font-size-h1) * 0.7);

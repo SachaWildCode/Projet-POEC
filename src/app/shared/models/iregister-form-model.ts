@@ -11,7 +11,7 @@ export interface IRegisterFormModel {
     firstName: FormControl<string>;
     lastName: FormControl<string>;
     phone: FormControl<string>;
-    birthDate: FormControl<Date>;
+    birthDate: FormControl<string>;
     gender: FormControl<Gender>;
   }>;
   address: FormGroup<{

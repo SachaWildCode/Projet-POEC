@@ -2,15 +2,7 @@
 <h2>Veuillez entrer vos identifiants pour accéder à votre compte HeartLink.</h2>
 <main>
   <section>
-    <ng-container *ngFor="let message of messages; let i = index">
-      <div
-        class="carousel"
-        *ngIf="i === currentMessageIndex"
-        [ngStyle]="{ 'background-image': 'url(' + message.imageUrl + ')' }">
-        <h5>{{ message.title }}</h5>
-        <p>{{ message.text }}</p>
-      </div>
-    </ng-container>
+    <app-auth-carousel />
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div>
         <label for="email">Email</label>
