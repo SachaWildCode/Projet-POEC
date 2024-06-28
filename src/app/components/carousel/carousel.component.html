@@ -1,16 +1,17 @@
-<!-- src/app/components/carousel/carousel.component.html -->
+<!-- src/app/components/carousel/carousel.component.html
 
 <div class="carousel-wrapper">
   <button (click)="previousSlide()" class="carousel-button prev-button">&lt;</button>
 
   <div class="carousel-container">
-    <div class="carousel-slide" 
-         *ngFor="let item of items" 
-         (mouseenter)="stopAutoSlide()" 
-         (mouseleave)="startAutoSlide()">
-      <app-card 
-        [title]="item.title" 
-        [description]="item.description" 
+    <div
+      class="carousel-slide"
+      *ngFor="let item of items"
+      (mouseenter)="stopAutoSlide()"
+      (mouseleave)="startAutoSlide()">
+      <app-card
+        [title]="item.title"
+        [description]="item.description"
         [imageUrl]="item.imageUrl"
         [(sliderValue)]="item.sliderValue">
       </app-card>
@@ -18,4 +19,4 @@
   </div>
 
   <button (click)="nextSlide()" class="carousel-button next-button">&gt;</button>
-</div>
+</div> -->

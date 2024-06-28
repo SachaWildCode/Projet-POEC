@@ -11,8 +11,7 @@ import { TransparencyPageComponent } from './pages/transparency-page/transparenc
 import { UserPageComponent } from './pages/user-page/user-page.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { CardComponent } from './components/card/card.component';
-import { CarouselComponent } from './components/carousel/carousel.component';
-import { CardComponent } from './components/card/card.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 export const routes: Routes = [
   {
@@ -25,8 +24,6 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: 'auth', component: AuthPageComponent },
-  { path: 'auth', component: AuthPageComponent },
   { path: '', component: LandingPageComponent },
   { path: 'faq', component: FaqPageComponent },
   { path: 'asso', component: AssoPageComponent },
