@@ -1,5 +1,7 @@
 // app.routes.ts //
 
+// app.routes.ts //
+
 import { Routes } from '@angular/router';
 import { AuthPageComponent } from './pages/auth-page/auth-page.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
@@ -9,7 +11,8 @@ import { TransparencyPageComponent } from './pages/transparency-page/transparenc
 import { UserPageComponent } from './pages/user-page/user-page.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { CardComponent } from './components/card/card.component';
-import { LoginFormComponent } from './components/login-form/login-form.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { CardComponent } from './components/card/card.component';
 
 export const routes: Routes = [
   {
@@ -22,6 +25,7 @@ export const routes: Routes = [
       },
     ],
   },
+  { path: 'auth', component: AuthPageComponent },
   { path: 'auth', component: AuthPageComponent },
   { path: '', component: LandingPageComponent },
   { path: 'faq', component: FaqPageComponent },
