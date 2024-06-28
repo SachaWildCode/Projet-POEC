@@ -1,0 +1,54 @@
+// src/app/components/carousel/carousel.component.scss
+
+.carousel-wrapper {
+  position: relative;
+  width: 98%;
+  margin: 0 auto; // Centre horizontalement le carousel-wrapper
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.carousel-container {
+  display: flex;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  transition: transform 1s ease-in-out;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.carousel-slide {
+  scroll-snap-align: start;
+  flex: 0 0 calc(33.33% - 16px);
+  margin-right: 16px;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 10px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prev-button {
+  height: 100%;
+  left: -5px;
+}
+
+.next-button {
+  height: 100%;
+  right: -5px;
+}

@@ -1,10 +1,11 @@
+// landing-preview.component.ts
+
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-landing-preview',
   standalone: true,
-  imports: [],
-  templateUrl: './landing-preview.component.html',
-  styleUrl: './landing-preview.component.scss',
+  template: `<p>Landing Preview Works!</p>`,
+  styles: [``],
 })
 export class LandingPreviewComponent {}

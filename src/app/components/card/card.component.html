@@ -1,0 +1,11 @@
+<!-- src/app/components/card/card.component.html -->
+
+<div class="card">
+  <img [src]="imageUrl" alt="Card Image" class="card-image" />
+  <div class="card-content">
+    <div class="card-title">{{ title }}</div>
+    <div class="card-description">{{ description }}</div>
+    <input type="range" min="0" max="100" [(ngModel)]="sliderValue" (ngModelChange)="onSliderValueChange($event)" class="card-slider" />
+    <span>{{ sliderValue }}</span>
+  </div>
+</div>
