@@ -1,21 +1,57 @@
+$marg: 4rem;
 main {
   width: 100%;
-  border-style: dashed;
-  align-items: center;
   display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  position: relative;
-
-  .carousel-card {
-    border-style: 5px solid black;
-    background-color: black;
-    display: flex;
-    padding: 2rem;
-    gap: 2rem;
-    width: calc(1200px + 10rem);
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
+  justify-content: center;
+}
+.outer-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow-x: hidden;
+}
+.carousel-container {
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-margin: calc($marg / 2);
+  scroll-padding: calc($marg / 2);
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.carousel-card {
+  display: flex;
+  padding: 20px 0;
+  gap: $marg;
+  scroll-behavior: smooth;
+  scroll-snap-align: center;
+  justify-content: flex-start;
+  padding-left: 2rem;
+  app-card-asso {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+  }
+}
+@media (min-width: 1601px) {
+  .carousel-container {
+    width: calc(300px * 4 + 4 * $marg);
+  }
+}
+@media (max-width: 1600px) and (min-width: 1201px) {
+  .carousel-container {
+    width: calc(300px * 3 + 3 * $marg);
+  }
+}
+@media (max-width: 1200px) and (min-width: 801px) {
+  .carousel-container {
+    width: calc(300px * 2 + 2 * $marg);
+  }
+}
+@media (max-width: 800px) {
+  .carousel-container {
+    width: calc(300px + $marg);
   }
 }
