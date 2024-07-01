@@ -20,7 +20,7 @@ export interface IRegisterFormModel {
     street_name: FormControl<string>;
     city: FormControl<string>;
     zipCode: FormControl<string>;
-    country: FormControl<string>;
-    state: FormControl<string>;
+    department: FormControl<string>;
+    region: FormControl<string>;
   }>;
 }

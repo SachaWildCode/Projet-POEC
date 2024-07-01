@@ -13,8 +13,16 @@
         </ng-container>
       </div>
       <div>
+        <button class="password-visibility-toggle" (click)="togglePasswordVisibility()">
+          <fa-icon [icon]="passwordVisible ? faEyeSlash : faEye"></fa-icon>
+        </button>
         <label for="password">Mot de passe</label>
-        <input type="password" placeholder="password" formControlName="password" autocomplete="current-password" />
+        <input
+          type="password"
+          placeholder="password"
+          formControlName="password"
+          autocomplete="current-password"
+          [type]="passwordVisible ? 'text' : 'password'" />
         <ng-container *ngIf="loginForm.controls['password'].dirty || showRequired">
           <ng-container *ngIf="loginForm.controls['password'].errors?.['required']">
             <small>Le mot de passe est requis.</small>

@@ -12,16 +12,66 @@
             <div>
               <label for="email">Email</label>
               <input id="email" formControlName="email" type="email" placeholder="" />
+              <small
+                *ngIf="
+                  registerForm.controls['account'].controls['email'].touched &&
+                  registerForm.controls['account'].controls['email'].errors?.['required']
+                "
+                >L'email est requis.</small
+              >
+              <small
+                *ngIf="
+                  registerForm.controls['account'].controls['email'].touched &&
+                  registerForm.controls['account'].controls['email'].errors?.['email']
+                "
+                >L'email est invalide.</small
+              >
             </div>
 
             <div>
+              <button (click)="togglePasswordVisibility('password')">
+                <fa-icon [icon]="passwordVisible.password ? faEyeSlash : faEye"></fa-icon>
+              </button>
+
               <label for="password">Mot de passe</label>
-              <input id="password" formControlName="password" type="password" placeholder="" />
+              <input
+                id="password"
+                formControlName="password"
+                [type]="passwordVisible.password ? 'text' : 'password'"
+                placeholder="" />
+              <ng-container *ngIf="registerForm.controls['account'].controls['password'].dirty">
+                <ng-container *ngIf="registerForm.controls['account'].controls['password'].errors?.['required']">
+                  <small>Le mot de passe est requis.</small>
+                </ng-container>
+                <ng-container *ngIf="!registerForm.controls['account'].controls['password'].errors?.['required']">
+                  <ng-container
+                    *ngFor="let error of registerForm.controls['account'].controls['password'].errors | keyvalue">
+                    <small
+                      *ngIf="
+                        error.key !== 'required' &&
+                        registerForm.controls['account'].controls['password'].errors?.[error.key]
+                      ">
+                      {{ error.value }}
+                    </small>
+                  </ng-container>
+                </ng-container>
+              </ng-container>
             </div>
 
             <div>
+              <button (click)="togglePasswordVisibility('confirmPassword')">
+                <fa-icon [icon]="passwordVisible.confirmPassword ? faEyeSlash : faEye"></fa-icon>
+              </button>
               <label for="confirmPassword">Confirmer le mot de passe</label>
-              <input id="confirmPassword" formControlName="confirmPassword" type="password" placeholder="" />
+              <input
+                id="confirmPassword"
+                formControlName="confirmPassword"
+                [type]="passwordVisible.confirmPassword ? 'text' : 'password'"
+                placeholder="" />
+
+              <small *ngIf="registerForm.controls['account'].errors?.['PasswordNoMatch']"
+                >Le mot de passe et la confirmation du mot de passe doivent être identiques.</small
+              >
             </div>
           </div>
         </div>
@@ -33,21 +83,49 @@
             <div>
               <label for="firstName">Prénom</label>
               <input id="firstName" formControlName="firstName" type="text" placeholder="" />
+              <small
+                *ngIf="
+                  registerForm.controls['user'].controls['firstName'].touched &&
+                  registerForm.controls['user'].controls['firstName'].errors?.['required']
+                "
+                >Le prénom est requis.</small
+              >
             </div>
 
             <div>
               <label for="lastName">Nom</label>
               <input id="lastName" formControlName="lastName" type="text" placeholder="" />
+              <small
+                *ngIf="
+                  registerForm.controls['user'].controls['lastName'].touched &&
+                  registerForm.controls['user'].controls['lastName'].errors?.['required']
+                "
+                >Le nom est requis.</small
+              >
             </div>
 
             <div>
               <label for="phone">Téléphone</label>
               <input id="phone" formControlName="phone" type="text" placeholder="" />
+              <small
+                *ngIf="
+                  registerForm.controls['user'].controls['phone'].touched &&
+                  registerForm.controls['user'].controls['phone'].errors?.['required']
+                "
+                >Le téléphone est requis.</small
+              >
             </div>
 
             <div>
               <label for="birthDate">Date de naissance</label>
               <input id="birthDate" formControlName="birthDate" type="date" placeholder="" />
+              <small
+                *ngIf="
+                  registerForm.controls['user'].controls['birthDate'].touched &&
+                  registerForm.controls['user'].controls['birthDate'].errors?.['required']
+                "
+                >La date de naissance est requise.</small
+              >
             </div>
 
             <div>
@@ -55,6 +133,13 @@
               <select id="gender" formControlName="gender">
                 <option *ngFor="let gender of genderOptions" [value]="gender">{{ gender }}</option>
               </select>
+              <small
+                *ngIf="
+                  registerForm.controls['user'].controls['gender'].touched &&
+                  registerForm.controls['user'].controls['gender'].errors?.['required']
+                "
+                >Le genre est requis.</small
+              >
             </div>
           </div>
         </div>
@@ -68,36 +153,85 @@
               <select id="street_type" formControlName="street_type">
                 <option *ngFor="let type of streetTypeOptions" [value]="type">{{ type }}</option>
               </select>
+              <small
+                *ngIf="
+                  registerForm.controls['address'].controls['street_type'].touched &&
+                  registerForm.controls['address'].controls['street_type'].errors?.['required']
+                "
+                >Le type de rue est requis.</small
+              >
             </div>
 
             <div>
               <label for="street_number">Numéro de rue</label>
               <input id="street_number" formControlName="street_number" type="text" placeholder="" />
+              <small
+                *ngIf="
+                  registerForm.controls['address'].controls['street_number'].touched &&
+                  registerForm.controls['address'].controls['street_number'].errors?.['required']
+                "
+                >Le numéro de rue est requis.</small
+              >
             </div>
 
             <div>
               <label for="street_name">Nom de rue</label>
               <input id="street_name" formControlName="street_name" type="text" placeholder="" />
+              <small
+                *ngIf="
+                  registerForm.controls['address'].controls['street_name'].touched &&
+                  registerForm.controls['address'].controls['street_name'].errors?.['required']
+                "
+                >Le nom de rue est requis.</small
+              >
             </div>
 
             <div>
               <label for="city">Ville</label>
               <input id="city" formControlName="city" type="text" placeholder="" />
+              <small
+                *ngIf="
+                  registerForm.controls['address'].controls['city'].touched &&
+                  registerForm.controls['address'].controls['city'].errors?.['required']
+                "
+                >La ville est requise.</small
+              >
             </div>
 
             <div>
               <label for="zipCode">Code postal</label>
               <input id="zipCode" formControlName="zipCode" type="text" placeholder="" />
+              <small
+                *ngIf="
+                  registerForm.controls['address'].controls['zipCode'].touched &&
+                  registerForm.controls['address'].controls['zipCode'].errors?.['required']
+                "
+                >Le code postal est requis.</small
+              >
             </div>
 
             <div>
-              <label for="country">Pays</label>
-              <input id="country" formControlName="country" type="text" placeholder="" />
+              <label for="region">Région</label>
+              <input id="region" formControlName="region" type="text" placeholder="" />
+              <small
+                *ngIf="
+                  registerForm.controls['address'].controls['region'].touched &&
+                  registerForm.controls['address'].controls['region'].errors?.['required']
+                "
+                >La région est requise.</small
+              >
             </div>
 
             <div>
-              <label for="state">État</label>
-              <input id="state" formControlName="state" type="text" placeholder="" />
+              <label for="department">Département</label>
+              <input id="department" formControlName="department" type="text" placeholder="" />
+              <small
+                *ngIf="
+                  registerForm.controls['address'].controls['department'].touched &&
+                  registerForm.controls['address'].controls['department'].errors?.['required']
+                "
+                >Le département est requis.</small
+              >
             </div>
           </div>
         </div>

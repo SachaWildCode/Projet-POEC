@@ -78,7 +78,18 @@ div {
     text-align: left;
   }
 }
-
+.password-visibility-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  padding: 0;
+  transition: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: none;
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
 label {
   color: rgba(78, 77, 77, 0.7);
   font-weight: bold;
@@ -137,7 +148,6 @@ button {
       min-width: 376px;
       flex: 1;
       border-radius: 8px;
-      background-color: transparent;
       app-auth-carousel {
         visibility: none;
         display: none;
@@ -163,20 +173,25 @@ button {
 @media (max-width: 576px) {
   main {
     padding: 0;
+    justify-content: center;
     section {
       box-shadow: none;
       min-width: initial;
       padding: 0;
+      padding-top: 3rem;
       border-radius: 0;
+      background-color: transparent;
+
       form {
         min-height: 100%;
-        padding: 10%;
+        padding: 1rem;
+
         div {
           width: 100%;
           position: relative;
           line-height: 1.5;
           input:not([type='checkbox']) {
-            min-width: 200px;
+            min-width: 0px;
           }
         }
       }
