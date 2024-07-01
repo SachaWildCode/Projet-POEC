@@ -1,0 +1,32 @@
+<main [style.width]="card_width">
+  <i class="fa-plus"> <fa-icon [icon]="faPlus"></fa-icon> </i>
+  <div class="top_card">
+    <img [src]="association.image_url" alt="Logo de l'association" />
+  </div>
+  <div class="bottom_card">
+    <section>
+      <h4>{{ association.social_name }}</h4>
+      <p>{{ association.description }}</p>
+    </section>
+    <section>
+      <span>{{ association.objectif_current }}€ sur un objectif de {{ association.objectif_total }}€</span>
+      <div
+        class="progress_bar"
+        [style]="{
+          background:
+            'linear-gradient(to right, lightgreen ' +
+            percent +
+            '%, transparent ' +
+            percent +
+            '%, lightgray ' +
+            percent +
+            '%)',
+        }"></div>
+    </section>
+
+    <div class="card_info">
+      <small> <fa-icon [icon]="faHeart"></fa-icon> {{ association.donation_count }} donateurs</small>
+      <h5>{{ association.type }}</h5>
+    </div>
+  </div>
+</main>
