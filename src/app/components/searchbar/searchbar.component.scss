@@ -1,67 +1,48 @@
-.container {
+main {
   display: flex;
-  flex-direction: row;
-  width: calc(100vw * (2 / 3));
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 5px;
-  padding: 5px;
-  background: linear-gradient(180deg, rgba(217, 217, 217, 1) 0%, rgba(181, 176, 176, 1) 100%);
-}
+  gap: 1rem;
+  padding: 0.6rem;
+  border-radius: 8px;
+  background-color: #bbbbbb;
 
-.search input[type='text'] {
-  flex-grow: 1;
-  padding: 5px 10px;
-  border: none;
-  background: #fff
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0' /%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: left;
-  background-position-x: 10px;
-  padding-left: 31px;
-  color: #1e1c1c;
-  font-size: 16px;
-  grid: column 2/3;
-  border-radius: 5px;
-}
+  div {
+    flex: 4;
+    display: flex;
+    margin-right: 2rem;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
 
-button {
-  padding: 5px;
-  background-color: var(--color-white);
-  border-radius: 5px;
-  width: fit-content;
-  cursor: pointer;
+    input {
+      position: relative;
+      width: 100%;
+      flex: 5;
+      border-radius: 5px 0 0 5px;
+      min-width: 100px;
+      outline: none;
+      border: none;
+      text-indent: 1rem;
+    }
+    button {
+      border-radius: 0 5px 5px 0;
+      flex-basis: 2rem;
+      padding: 0.6rem;
+      background-color: var(--color-black);
+      color: var(--color-white);
+      outline: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      &:active {
+        background-color: var(--color-dark-grey);
+        color: var(--color-black);
+      }
+    }
+  }
+  select {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    flex: 1;
+    min-width: 50px;
+    box-shadow: var(--button-box-shadow);
+  }
 }
-.btn-search {
-  background-color: var(--color-black);
-  color: var(--color-white);
-}
-
-.btn-search:hover {
-  background-color: var(--color-black);
-}
-.btn-search:active {
-  transform: scale(1.1);
-}
-
-.filter {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.filter form {
-  margin-right: 10px;
-}
-
-select {
-  padding: 5px 5px;
-  border: 1px solid;
-  border-radius: 5px;
-  font-size: 16px;
-  background-color: var(--color-white);
-  color: var(--color-black);
-}
-
-//@media  media screen(max-width: 792px) {
-
-//}
