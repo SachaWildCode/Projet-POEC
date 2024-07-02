@@ -1,14 +1,18 @@
 main {
-  padding: 0 5%;
   flex: 1;
   display: flex;
   width: 100%;
-
+  justify-content: center;
+  flex-direction: row;
+  border-style: dashed;
+  gap: 2rem;
   .main-section {
+    border-style: dashed;
     flex: 3;
   }
   .sidebar {
     flex: 1;
+    border-style: dashed;
   }
 }
 

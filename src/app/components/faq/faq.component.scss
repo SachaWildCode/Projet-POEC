@@ -1,7 +1,6 @@
 main {
   color: black;
   overflow: hidden;
-
   section {
     margin: 0 auto;
     border-radius: 12px;
@@ -20,7 +19,9 @@ main {
       color: var(--color-white);
     }
     h3 {
-      margin-bottom: 1rem;
+      margin: 0 auto;
+      margin-bottom: 2rem;
+      width: 80%;
 
       a {
         text-decoration: underline;
@@ -50,6 +51,7 @@ main {
     }
   }
 }
+
 details > summary {
   position: relative;
   cursor: pointer;

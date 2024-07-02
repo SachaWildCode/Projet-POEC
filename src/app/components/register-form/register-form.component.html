@@ -1,13 +1,13 @@
 <main>
-  <h1>S'enregistrer</h1>
-  <h2>Découvrez une manière simple et personnalisée de donner et de faire la différence.</h2>
+  <h2>S'enregistrer</h2>
+  <h3>Découvrez une manière simple et personnalisée de donner et de faire la différence.</h3>
   <section>
     <app-auth-carousel *ngIf="currentStep < 4" />
     <div>
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <!-- Step 1: Account Information -->
         <div *ngIf="currentStep === 1">
-          <h3>Informations du compte</h3>
+          <h4>Informations du compte</h4>
           <div formGroupName="account">
             <div>
               <label for="email">Email</label>
@@ -78,7 +78,7 @@
 
         <!-- Step 2: User Information -->
         <div *ngIf="currentStep === 2">
-          <h3>Informations de l'utilisateur</h3>
+          <h4>Informations de l'utilisateur</h4>
           <div formGroupName="user">
             <div>
               <label for="firstName">Prénom</label>
@@ -146,7 +146,7 @@
 
         <!-- Step 3: Address Information -->
         <div *ngIf="currentStep === 3">
-          <h3>Informations d'adresse</h3>
+          <h4>Informations d'adresse</h4>
           <div formGroupName="address">
             <div>
               <label for="street_type">Type de rue</label>

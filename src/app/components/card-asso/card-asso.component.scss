@@ -3,13 +3,12 @@ main {
   flex-direction: column;
   background-color: var(--color-white);
   border-radius: 8px;
-  padding: 2rem;
+  padding: 1.4rem;
   box-shadow: var(--button-box-shadow);
   gap: 1rem;
   position: relative;
   transition: transform 0.3s ease-in-out;
   transform: scale(1);
-  width: 300px;
   height: 100%;
   &:hover {
     transform: scale(1.05);
@@ -43,7 +42,6 @@ main {
   .bottom_card {
     flex: 1;
     height: 50%;
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -57,6 +55,7 @@ main {
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
+        font-size: calc(var(--font-size-small));
       }
       span {
         max-height: 1rem;
@@ -83,10 +82,11 @@ main {
           color: red;
         }
       }
-      h5 {
+      p {
         border: 1px solid lightgray;
-        padding: 0.5rem 1rem;
+        padding: 0.2rem 0.6rem;
         border-radius: 1rem;
+        font-size: calc(var(--font-size-small));
       }
     }
   }
