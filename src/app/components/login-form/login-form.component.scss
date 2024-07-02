@@ -114,7 +114,8 @@ input:not([type='checkbox']) {
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 100%;
-  min-width: 300px;
+
+  min-width: 0;
   line-height: 1.5rem;
   &::placeholder {
     color: transparent;
