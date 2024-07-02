@@ -1,13 +1,13 @@
 main {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-bottom: 3rem;
   text-shadow: none;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex: 1;
   div {
     flex-shrink: 0;
-    flex-basis: 90%;
+    width: 100%;
     min-width: 798px;
     box-shadow: var(--button-box-shadow);
     border-radius: calc(0.2rem + 8px);

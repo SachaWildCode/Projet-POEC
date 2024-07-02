@@ -30,6 +30,7 @@ body {
   background-color: var(--background-color);
   font-family: var(--font-family-inter);
   font-weight: var(--font-weight-lighter);
+  padding: 0 10%;
 }
 
 @import url('https://fonts.googleapis.com/css?family=League%20Spartan|Inter');
@@ -104,9 +105,9 @@ button {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 792px) {
   body {
-    padding-bottom: 3.5rem;
+    padding: 0;
   }
   h1 {
     font-size: calc(var(--font-size-h1) * 0.9);
@@ -134,7 +135,7 @@ button {
 }
 @media (max-width: 576px) {
   body {
-    padding-bottom: 3.5rem;
+    padding: 0;
   }
   h1 {
     font-size: calc(var(--font-size-h1) * 0.6);

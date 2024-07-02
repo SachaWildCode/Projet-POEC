@@ -1,49 +1,15 @@
 $marg: 4rem;
 main {
-  width: 100%;
+  align-items: center;
   display: flex;
-  justify-content: center;
-}
-
-.carousel-container {
+  flex-direction: row;
   overflow: hidden;
-  width: 100%;
-  position: relative;
-}
+  flex: 1;
 
-.carousel-card {
-  display: flex;
-  gap: 2rem;
-  animation: scroll-horizontal 30s 3s linear infinite;
-  will-change: transform;
-  padding: 20px 0;
-}
+  .carousel-card {
+    background-color: black;
+    display: flex;
 
-.carousel-card app-card-asso {
-  flex: 0 0 300px;
-}
-
-/* Animation keyframes */
-@keyframes scroll-horizontal {
-  0% {
-    transform: translateX(0);
+    overflow: hidden;
   }
-  100% {
-    // transform: translateX(-50%);
-    transform: translateX(calc((-300px - 2rem) * 15 - 0.2rem));
-  }
-}
-
-.carousel-card:hover {
-  -webkit-animation-play-state: paused;
-  -moz-animation-play-state: paused;
-  -o-animation-play-state: paused;
-  animation-play-state: paused;
-}
-
-.carousel-container:hover > .carousel-card:not(:hover) {
-  -webkit-animation-play-state: paused;
-  -moz-animation-play-state: paused;
-  -o-animation-play-state: paused;
-  animation-play-state: paused;
 }

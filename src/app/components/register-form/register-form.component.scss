@@ -12,7 +12,6 @@ h2 {
   margin-bottom: 2rem;
 }
 main {
-  padding: 0 20% 1rem 20%;
   display: flex;
   flex: 1;
   justify-content: center;
@@ -28,7 +27,7 @@ main {
     box-shadow: var(--button-box-shadow);
     overflow: hidden;
     width: 100%;
-    min-width: 798px;
+    max-width: 798px;
     app-auth-carousel {
       flex: 1;
     }
@@ -155,7 +154,7 @@ main {
     }
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   main {
     padding-top: 1rem;
     section {

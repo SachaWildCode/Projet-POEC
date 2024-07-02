@@ -1,25 +1,18 @@
 main {
+  padding: 0 5%;
+  flex: 1;
   display: flex;
-  border: 1px solid red;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0 5rem;
-  padding-top: 6.5rem;
+  width: 100%;
+
   .main-section {
-    border: 1px solid blue;
     flex: 3;
   }
   .sidebar {
-    border: 1px solid green;
     flex: 1;
   }
 }
-@media screen and (max-width: 798px) {
-  main {
-    padding: 0;
-    padding-bottom: 3.8rem;
-  }
+
+:host {
+  display: flex;
+  flex: 1;
 }

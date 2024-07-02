@@ -1,6 +1,5 @@
 h1 {
   text-align: center;
-  padding-top: 1rem;
   margin-bottom: 1rem;
   color: var(--color-white);
 }
@@ -9,29 +8,29 @@ h2 {
   text-align: center;
   width: 80%;
   margin: 0 auto;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   color: var(--color-white);
   font-weight: 300;
 }
 main {
-  padding: 5rem 20% 1rem 20%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 section {
   text-align: center;
   background-color: var(--color-white);
   border-radius: 8px;
   display: flex;
-  justify-content: center;
   flex-wrap: nowrap;
   box-shadow: var(--button-box-shadow);
   overflow: hidden;
   width: 100%;
-  min-width: 798px;
+  max-width: 798px;
   app-auth-carousel {
     flex: 1;
+    min-width: 50%;
   }
 }
 
@@ -136,17 +135,14 @@ button {
   }
 }
 
-@media (max-width: 798px) {
+@media (max-width: 992px) {
   main {
-    position: absolute;
     width: 100%;
     section {
       min-height: 0;
       align-items: center;
       justify-content: center;
       display: flex;
-      min-width: 376px;
-      flex: 1;
       border-radius: 8px;
       app-auth-carousel {
         visibility: none;
