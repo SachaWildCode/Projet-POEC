@@ -1,11 +1,13 @@
 <main>
-  <div class="outer-container">
-    <div class="carousel-container">
-      <div class="carousel-card">
-        <ng-container *ngFor="let card of cards">
-          <app-card-asso [association]="card"></app-card-asso>
-        </ng-container>
-      </div>
+  <div class="carousel-container">
+    <div class="carousel-card">
+      <ng-container *ngFor="let card of cards">
+        <app-card-asso [association]="card"></app-card-asso>
+      </ng-container>
+      <!-- Duplicate the cards to achieve seamless scrolling -->
+      <ng-container *ngFor="let card of cards">
+        <app-card-asso [association]="card"></app-card-asso>
+      </ng-container>
     </div>
   </div>
 </main>

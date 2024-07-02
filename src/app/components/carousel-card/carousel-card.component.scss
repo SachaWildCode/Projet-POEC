@@ -4,54 +4,46 @@ main {
   display: flex;
   justify-content: center;
 }
-.outer-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  overflow-x: hidden;
-}
+
 .carousel-container {
-  display: flex;
-  justify-content: flex-start;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-margin: calc($marg / 2);
-  scroll-padding: calc($marg / 2);
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  overflow: hidden;
+  width: 100%;
+  position: relative;
 }
+
 .carousel-card {
   display: flex;
+  gap: 2rem;
+  animation: scroll-horizontal 30s 3s linear infinite;
+  will-change: transform;
   padding: 20px 0;
-  gap: $marg;
-  scroll-behavior: smooth;
-  scroll-snap-align: center;
-  justify-content: flex-start;
-  padding-left: 2rem;
-  app-card-asso {
-    flex: 0 0 300px;
-    scroll-snap-align: start;
+}
+
+.carousel-card app-card-asso {
+  flex: 0 0 300px;
+}
+
+/* Animation keyframes */
+@keyframes scroll-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    // transform: translateX(-50%);
+    transform: translateX(calc((-300px - 2rem) * 15 - 0.2rem));
   }
 }
-@media (min-width: 1601px) {
-  .carousel-container {
-    width: calc(300px * 4 + 4 * $marg);
-  }
+
+.carousel-card:hover {
+  -webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  -o-animation-play-state: paused;
+  animation-play-state: paused;
 }
-@media (max-width: 1600px) and (min-width: 1201px) {
-  .carousel-container {
-    width: calc(300px * 3 + 3 * $marg);
-  }
-}
-@media (max-width: 1200px) and (min-width: 801px) {
-  .carousel-container {
-    width: calc(300px * 2 + 2 * $marg);
-  }
-}
-@media (max-width: 800px) {
-  .carousel-container {
-    width: calc(300px + $marg);
-  }
+
+.carousel-container:hover > .carousel-card:not(:hover) {
+  -webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  -o-animation-play-state: paused;
+  animation-play-state: paused;
 }
