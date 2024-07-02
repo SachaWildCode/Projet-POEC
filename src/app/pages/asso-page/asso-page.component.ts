@@ -10,6 +10,8 @@ import { AssoService } from '../../shared/services/asso.service';
 })
 export class AssoPageComponent {
   constructor(private assoService: AssoService) {
-    // this.assoService.getAllAsso().subscribe(data => {});
+    this.assoService.getAllAsso().subscribe(data => {
+      console.warn(data);
+    });
   }
 }
