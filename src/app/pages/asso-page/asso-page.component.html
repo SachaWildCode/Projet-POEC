@@ -1,4 +1,10 @@
 <main>
-  <div class="main-section"><app-searchbar></app-searchbar></div>
-  <div class="sidebar"></div>
+  <div class="search">
+    <app-searchbar></app-searchbar>
+  </div>
+  <div class="asso-list">
+    <ng-container *ngFor="let association of associations">
+      <app-card-asso [association]="association"></app-card-asso>
+    </ng-container>
+  </div>
 </main>

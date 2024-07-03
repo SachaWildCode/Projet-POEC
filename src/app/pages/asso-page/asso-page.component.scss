@@ -1,22 +1,41 @@
 main {
-  flex: 1;
-  display: flex;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
   width: 100%;
-  justify-content: center;
-  flex-direction: row;
+  display: flex;
+  flex-direction: column;
   border-style: dashed;
-  gap: 2rem;
-  .main-section {
-    border-style: dashed;
-    flex: 3;
+  .search {
+    width: 100%;
+    margin-bottom: 16px;
   }
-  .sidebar {
-    flex: 1;
+  .asso-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
     border-style: dashed;
+    overflow-y: auto;
+    overflow-x: hidden; // Prevent horizontal overflow
+    padding: 16px;
+    box-sizing: border-box; // Ensure padding is included in the element's total width and height
+    justify-content: space-around;
+    // Align items to the start vertically
+    height: calc(100vh - 14rem);
+  }
+  .asso-list > * {
+    flex: 1 1 250px; // Ensure items take at least 250px and grow to fill space
+  }
+  @media screen and (max-width: 792px) {
+    .asso-list {
+      height: 100% !important;
+    }
   }
 }
-
-:host {
-  display: flex;
-  flex: 1;
+@media screen and (min-width: 1400px) {
+  .asso-list > * {
+    flex: 1 1 30% !important;
+    max-width: 30%;
+  }
 }

@@ -14,7 +14,7 @@ main {
 .carousel-card {
   display: flex;
   gap: 2rem;
-  animation: scroll-horizontal 30s 0s linear infinite;
+  animation: scroll-horizontal 60s 0s linear infinite;
   will-change: transform;
   padding: 20px 0;
 }

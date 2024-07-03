@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { LandingPreviewComponent } from '../../components/landing-preview/landing-preview.component';
 import { CarouselCardComponent } from '../../components/carousel-card/carousel-card.component';
 import { IcardAsso } from '../../shared/models/icard-asso';
+import { ButtonLandingComponent } from '../../components/button-landing/button-landing.component';
 
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [LandingPreviewComponent, CarouselCardComponent],
+  imports: [LandingPreviewComponent, CarouselCardComponent, ButtonLandingComponent],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss',
 })

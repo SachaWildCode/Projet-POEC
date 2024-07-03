@@ -5,7 +5,7 @@
     <app-auth-carousel />
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div>
-        <label for="email">Email</label>
+        <label for="email">Email </label>
         <input type="email" placeholder="email" formControlName="email" autocomplete="email" />
         <ng-container *ngIf="loginForm.controls['email'].dirty || showRequired">
           <small *ngIf="loginForm.controls['email'].errors?.['required']">L'email est requis.</small>

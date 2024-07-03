@@ -1,4 +1,9 @@
 <main>
-  <app-landing-preview></app-landing-preview>
-  <app-carousel-card [cards]="associations"></app-carousel-card>
+  <section class="title">
+    <app-landing-preview></app-landing-preview>
+  </section>
+  <section class="button"><app-button-landing></app-button-landing></section>
+  <section class="carousel">
+    <app-carousel-card [cards]="associations"></app-carousel-card>
+  </section>
 </main>
