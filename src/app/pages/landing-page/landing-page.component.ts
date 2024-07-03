@@ -19,8 +19,7 @@ export class LandingPageComponent {
         id: 1,
         image_url: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
         social_name: 'Social 1',
-        description:
-          'This is a large description for the first social cause that needs your support. Please consider donating to help us achieve our goal.This is a large description for the first social cause that needs your support. Please consider donating to help us achieve our goal.This is a large description for the first social cause that needs your support. Please consider donating to help us achieve our goal.',
+        description: 'This is a',
         donation_count: 100,
         type: 'Type 1',
         objectif_total: 6000,

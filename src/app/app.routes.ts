@@ -27,6 +27,9 @@ export const routes: Routes = [
   { path: 'faq', component: FaqPageComponent },
   { path: 'asso', component: AssoPageComponent },
   { path: 'transparency', component: TransparencyPageComponent },
-  { path: 'profile', component: UserPageComponent },
+  {
+    path: 'profile',
+    component: UserPageComponent,
+  },
   { path: '**', redirectTo: '' },
 ];

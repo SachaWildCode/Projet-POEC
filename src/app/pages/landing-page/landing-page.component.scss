@@ -9,6 +9,7 @@ main {
   width: 100%;
   gap: 16px;
   padding: 0 5%;
+  overflow: hidden;
 
   .title {
     flex: 3;
@@ -28,6 +29,5 @@ main {
     justify-content: center;
     align-items: center;
     max-width: 100%;
-    overflow: hidden;
   }
 }

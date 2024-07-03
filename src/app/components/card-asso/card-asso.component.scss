@@ -33,13 +33,13 @@ main {
     flex: 1;
     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
     border-bottom: 1px solid lightgray;
-    aspect-ratio: 30/9;
+    aspect-ratio: 21/9;
     padding: 16px;
 
     img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
     }
   }
   .bottom_card {
@@ -51,7 +51,17 @@ main {
     gap: 1rem;
     section {
       h4 {
-        padding-bottom: 8px;
+        display: -webkit-box;
+        margin-bottom: 8px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        word-wrap: break-word;
+        word-break: break-word;
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        hyphens: auto;
       }
       p {
         display: -webkit-box;
@@ -86,7 +96,16 @@ main {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+      gap: 8px;
       small {
+        -webkit-line-clamp: 1;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        word-wrap: break-word;
+        word-break: break-word;
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        hyphens: auto;
         fa-icon {
           color: red;
         }
@@ -96,6 +115,16 @@ main {
         border-radius: 1rem;
         font-size: calc(var(--font-size-small));
         padding: 4px 12px;
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        word-wrap: break-word;
+        word-break: break-word;
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        hyphens: auto;
       }
     }
   }

@@ -1,41 +1,64 @@
+:host {
+  display: flex;
+  flex: 1;
+  max-height: calc(100vh - 10rem);
+}
 main {
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  margin: 0 auto;
+  padding: 0 5%;
+  padding-bottom: 1rem;
+  max-height: 100%;
+  flex: 1;
   width: 100%;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  border-style: dashed;
   .search {
     width: 100%;
     margin-bottom: 16px;
   }
   .asso-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
-    border-style: dashed;
+    border-radius: 8px;
     overflow-y: auto;
     overflow-x: hidden; // Prevent horizontal overflow
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); // Display maximum of 4 items per row
+    gap: 16px;
     padding: 16px;
-    box-sizing: border-box; // Ensure padding is included in the element's total width and height
-    justify-content: space-around;
-    // Align items to the start vertically
-    height: calc(100vh - 14rem);
+    backdrop-filter: blur(40px) saturate(140%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    height: 100%;
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #e0e0e0;
+      border-radius: 8px;
+    }
   }
   .asso-list > * {
-    flex: 1 1 250px; // Ensure items take at least 250px and grow to fill space
+    height: 100% !important;
   }
-  @media screen and (max-width: 792px) {
+
+  @media screen and (max-width: 1500px) {
     .asso-list {
-      height: 100% !important;
+      grid-template-columns: repeat(3, 1fr); // Display maximum of 4 items per row
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    .asso-list {
+      grid-template-columns: repeat(2, 1fr); // Display maximum of 4 items per row
+    }
+  }
+  @media screen and (max-width: 644px) {
+    .asso-list {
+      grid-template-columns: repeat(1, 1fr); // Display maximum of 4 items per row
     }
   }
 }
-@media screen and (min-width: 1400px) {
-  .asso-list > * {
-    flex: 1 1 30% !important;
-    max-width: 30%;
+@media screen and (max-width: 792px) {
+  :host {
+    display: flex;
+    flex: 1;
+    max-height: calc(100vh - 5rem);
   }
 }
