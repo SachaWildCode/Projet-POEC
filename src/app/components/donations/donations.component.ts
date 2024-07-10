@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-donations',
   standalone: true,
-  imports: [],
+  imports: [DonationsComponent],
   templateUrl: './donations.component.html',
   styleUrl: './donations.component.scss',
 })
