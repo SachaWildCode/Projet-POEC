@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { Donations2Component } from '../../components/donations2/donations2.component';
+import { SideBarComponent } from '../../components/side-bar/side-bar.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-user-page',
   standalone: true,
-  imports: [Donations2Component],
+  imports: [SideBarComponent, RouterOutlet],
   templateUrl: './user-page.component.html',
   styleUrl: './user-page.component.scss',
 })
