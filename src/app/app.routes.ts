@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { Donations2Component } from './components/donations2/donations2.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { AssoPageComponent } from './pages/asso-page/asso-page.component';
@@ -35,10 +36,10 @@ export const routes: Routes = [
       //   path: 'notifications',
       //   component: SideBarComponent,
       // },
-      // {
-      //path: 'dons',
-      //component: DonationsComponent,
-      //},
+      {
+        path: 'dons',
+        component: Donations2Component,
+      },
       // {
       //   path: 'paiements',
       //   component: SideBarComponent,

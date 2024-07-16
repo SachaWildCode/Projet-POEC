@@ -1,9 +1,23 @@
-<body>
-    <h3>Gerer vos dons</h3>
-<div>
-    <input type="text" placeholder="Search"/>
-    <button type="button" id="share">Partager</button>
-    <button type="button" id="filter">.</button>
-</div>
+<div class="routercontainer">
+    <div class="component">
+        <h4>Gerer vos dons</h4>
 
-</body>
+    <div class="top">
+        <span class="input-group">
+            <fa-icon [icon]="faMagnifyingGlass"></fa-icon> 
+            <input type="text" placeholder="Search" />
+        </span>
+        <button type="button" id="filter"><fa-icon [icon]="faFilter"></fa-icon></button>
+    </div>
+
+    <div class="middle">
+        <span>Associations</span>
+        <span>Attributions/mois</span>
+        <span>Total donné</span>
+    </div>
+
+    <div class="bottom">
+        <button type="button" id="share">Partager</button>
+    </div>
+    </div>
+</div>
