@@ -11,7 +11,7 @@ main {
   gap: 16px;
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
   i {
     position: absolute;
@@ -27,20 +27,6 @@ main {
     justify-content: center;
     align-items: center;
     line-height: 0;
-  }
-  .top_card {
-    height: 30px;
-    flex: 1;
-    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
-    border-bottom: 1px solid lightgray;
-    aspect-ratio: 21/9;
-    padding: 16px;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
   }
   .bottom_card {
     flex: 1;
