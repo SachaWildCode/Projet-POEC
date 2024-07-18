@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+
+import { Donations2Component } from './components/donations2/donations2.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { AuthGuard } from './core/guards/auth-guard.service';
@@ -22,6 +24,32 @@ export const routes: Routes = [
         path: 'register',
         component: RegisterFormComponent,
       },
+    ],
+  },
+  {
+    path: 'profile',
+    component: UserPageComponent,
+    children: [
+      //{
+      //   path: 'compte',
+      //   component: SideBarComponent,
+      // },
+      // {
+      //   path: 'notifications',
+      //   component: SideBarComponent,
+      // },
+      {
+        path: 'dons',
+        component: Donations2Component,
+      },
+      // {
+      //   path: 'paiements',
+      //   component: SideBarComponent,
+      // },
+      // {
+      //   path: 'taxes',
+      //   component: SideBarComponent,
+      // },
     ],
   },
   { path: '', component: LandingPageComponent },
