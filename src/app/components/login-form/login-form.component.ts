@@ -1,11 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CommonModule, Location } from '@angular/common';
-import { passwordValidator } from '../../shared/validators/password';
 import { RouterModule } from '@angular/router';
-import { AuthCarouselComponent } from '../auth-carousel/auth-carousel.component';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from '../../shared/services/auth-service.service';
+import { passwordValidator } from '../../shared/validators/password';
+import { AuthCarouselComponent } from '../auth-carousel/auth-carousel.component';
 
 @Component({
   selector: 'app-login-form',
@@ -20,23 +21,33 @@ export class LoginFormComponent {
   passwordVisible = false;
   faEye = faEye;
   faEyeSlash = faEyeSlash;
-
+  errorMessage: string | null = null;
   constructor(
     private fb: FormBuilder,
-    private location: Location
+    private authService: AuthService
   ) {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, passwordValidator]],
+      email: ['default@example.com', [Validators.required, Validators.email]],
+      password: ['defaultPassword1234*', [Validators.required, passwordValidator]],
       rememberMe: [false],
     });
   }
 
+  //TODO : service redirect to last page not register
   onSubmit(): void {
     if (this.loginForm.valid) {
-      console.warn(this.loginForm.value);
-      this.showRequired = false;
-      this.location.back();
+      const { email, password } = this.loginForm.value as { email: string; password: string };
+      this.authService.login(email, password).subscribe({
+        next: user => {
+          console.warn('Login successful', user);
+          this.showRequired = false;
+        },
+        error: err => {
+          console.error('Login failed', err);
+          this.showRequired = true;
+          this.errorMessage = 'Mot de passe ou email invalide'; // Set error message for invalid form
+        },
+      });
     } else {
       this.showRequired = true;
     }

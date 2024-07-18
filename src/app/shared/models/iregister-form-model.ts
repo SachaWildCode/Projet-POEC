@@ -15,9 +15,9 @@ export interface IRegisterFormModel {
     gender: FormControl<Gender>;
   }>;
   address: FormGroup<{
-    street_type: FormControl<StreetType>;
-    street_number: FormControl<string>;
-    street_name: FormControl<string>;
+    streetType: FormControl<StreetType>;
+    streetNumber: FormControl<string>;
+    streetName: FormControl<string>;
     city: FormControl<string>;
     zipCode: FormControl<string>;
     department: FormControl<string>;

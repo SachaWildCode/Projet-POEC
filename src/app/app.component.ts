@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { NavbarMobileComponent } from './components/navbar-mobile/navbar-mobile.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { IUser } from './shared/models/iuser';
+import { UserService } from './shared/services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +12,15 @@ import { NavbarMobileComponent } from './components/navbar-mobile/navbar-mobile.
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'PROJET-POEC';
+  userInfo: IUser | null = null;
+
+  constructor(private userService: UserService) {}
+
+  ngOnInit(): void {
+    this.userService.userInfo$.subscribe(user => {
+      this.userInfo = user;
+    });
+  }
 }

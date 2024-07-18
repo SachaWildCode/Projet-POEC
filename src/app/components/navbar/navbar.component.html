@@ -13,6 +13,18 @@
         <li><a [routerLink]="['/transparency']" [routerLinkActive]="['is-active']">Transparence</a></li>
       </ul>
     </section>
-    <section><button [routerLink]="['/auth/login']">Connexion</button></section>
+    <section>
+      <button *ngIf="!isAuthenticated()" [routerLink]="['/auth/login']">Connexion</button>
+      <div *ngIf="isAuthenticated()" class="profile-menu">
+        <img
+          src="https://cdn.iconscout.com/icon/free/png-256/free-account-2375512-1989469.png"
+          alt=""
+          class="profile-image" />
+        <div class="dropdown-content">
+          <a [routerLink]="['/profile']">Profil</a>
+          <a (click)="this.logout()">Déconnexion</a>
+        </div>
+      </div>
+    </section>
   </div>
 </main>

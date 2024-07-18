@@ -17,6 +17,51 @@ main {
     background-color: var(--navbar-bg-color);
     padding: 0.5rem;
     section {
+      .profile-menu {
+        position: relative;
+        min-width: 0;
+        padding: 0;
+        border-radius: 8px;
+        margin: 0;
+        height: 42px;
+        width: 42px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        &:hover .dropdown-content {
+          display: block;
+        }
+        img {
+          object-fit: contain;
+          height: 80%;
+          width: 80%;
+          border-radius: 8px;
+        }
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #f9f9f9;
+          min-width: 160px;
+          box-shadow: var(--button-box-shadow);
+          z-index: 1;
+          right: 0;
+          top: calc(0px + 42px);
+
+          a {
+            color: black;
+            text-decoration: none;
+            margin: 0;
+            width: 100%;
+            display: block;
+            padding: 0.5rem;
+            border-radius: 8px;
+            &:hover {
+              background-color: #f1f1f1;
+            }
+          }
+        }
+      }
       h1 {
         display: flex;
         text-align: center;

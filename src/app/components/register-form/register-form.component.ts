@@ -1,12 +1,16 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { IRegisterFormModel } from '../../shared/models/iregister-form-model';
-import { Gender, StreetType } from '../../shared/types';
-import { CommonModule } from '@angular/common';
-import { AuthCarouselComponent } from '../auth-carousel/auth-carousel.component';
-import { confirmPasswordValidator, passwordValidator } from '../../shared/validators/password';
+import { Router } from '@angular/router';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { ApiError } from '../../shared/models/api-error';
+import { IRegisterFormModel } from '../../shared/models/iregister-form-model';
+import { AccountPostRequest, AddressPostRequest, RegisterRequest } from '../../shared/models/register-request';
+import { AuthService } from '../../shared/services/auth-service.service';
+import { Gender, StreetType } from '../../shared/types';
+import { confirmPasswordValidator, passwordValidator } from '../../shared/validators/password';
+import { AuthCarouselComponent } from '../auth-carousel/auth-carousel.component';
 
 @Component({
   selector: 'app-register-form',
@@ -20,38 +24,44 @@ export class RegisterFormComponent {
   genderOptions: Gender[] = ['Homme', 'Femme', 'Autre'];
   streetTypeOptions: StreetType[] = ['Avenue', 'Boulevard', 'Rue'];
   currentStep = 1;
-  passwordVisible = {
-    password: false,
-    confirmPassword: false,
-  };
+  passwordVisible = { password: false, confirmPassword: false };
   faEye = faEye;
   faEyeSlash = faEyeSlash;
+  errorMessage: string | null = null;
 
-  constructor(private fb: NonNullableFormBuilder) {
+  constructor(
+    private fb: NonNullableFormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
+    this.initializeForm();
+  }
+
+  private initializeForm() {
     this.registerForm = this.fb.group({
       account: this.fb.group(
         {
-          email: ['', [Validators.required, Validators.email]],
-          password: ['', [Validators.required, passwordValidator]],
-          confirmPassword: ['', [Validators.required]],
+          email: ['default@example.com', [Validators.required, Validators.email]],
+          password: ['defaultPassword1234*', [Validators.required, passwordValidator]],
+          confirmPassword: ['defaultPassword1234*', [Validators.required]],
         },
         { validators: [confirmPasswordValidator] }
       ),
       user: this.fb.group({
-        firstName: ['', Validators.required],
-        lastName: ['', Validators.required],
-        phone: ['', Validators.required],
-        birthDate: [new Date().toISOString().substring(0, 10), Validators.required],
+        firstName: ['John', Validators.required],
+        lastName: ['Doe', Validators.required],
+        phone: ['1234567890', Validators.required],
+        birthDate: ['2000-01-01', Validators.required],
         gender: ['Homme' as Gender, Validators.required],
       }),
       address: this.fb.group({
-        street_type: ['' as StreetType, Validators.required],
-        street_number: ['', Validators.required],
-        street_name: ['', Validators.required],
-        city: ['', Validators.required],
-        zipCode: ['', Validators.required],
-        department: ['', Validators.required],
-        region: ['', Validators.required],
+        streetType: ['Rue' as StreetType, Validators.required],
+        streetNumber: ['123', Validators.required],
+        streetName: ['Main St', Validators.required],
+        city: ['Paris', Validators.required],
+        zipCode: ['75000', Validators.required],
+        department: ['Ile-de-France', Validators.required],
+        region: ['Ile-de-France', Validators.required],
       }),
     });
   }
@@ -61,34 +71,46 @@ export class RegisterFormComponent {
   }
 
   nextStep() {
-    if (this.currentStep === 3 && !this.registerForm.valid) {
-      return;
-    }
+    if (this.currentStep === 3 && !this.registerForm.valid) return;
     const formGroups = ['account', 'user', 'address'];
     const currentGroup = this.registerForm.get(formGroups[this.currentStep - 1]);
-    if (currentGroup?.valid && this.currentStep < 4) {
-      this.currentStep++;
-    } else if (!currentGroup?.valid) {
-      // console.log('Current step form group is not valid');
-    }
+    if (currentGroup?.valid && this.currentStep < 4) this.currentStep++;
   }
 
   previousStep() {
-    if (this.currentStep > 1) {
-      this.currentStep--;
-    }
+    if (this.currentStep > 1) this.currentStep--;
   }
 
   onSubmit() {
     this.nextStep();
-    if (this.registerForm.valid) {
-      //TODO: add user to database
+    if (this.registerForm.valid && this.currentStep === 4) {
+      const { account, address } = this.registerForm.value;
+      const registerRequest: RegisterRequest = {
+        account: account as AccountPostRequest,
+        address: address as AddressPostRequest,
+        birthday: this.registerForm.get('user.birthDate')?.value ?? '',
+        firstname: this.registerForm.get('user.firstName')?.value ?? '',
+        lastname: this.registerForm.get('user.lastName')?.value ?? '',
+        phone: this.registerForm.get('user.phone')?.value ?? '',
+        gender: this.registerForm.get('user.gender')?.value ?? 'Autre',
+      };
+
+      this.authService.register(registerRequest).subscribe({
+        next: () => {
+          this.router
+            .navigate(['/auth/login'])
+            .then(() => {
+              this.currentStep = 4;
+              this.errorMessage = null;
+            })
+            .catch((err: unknown) => {
+              console.error('Navigation error:', err);
+            });
+        },
+        error: (err: ApiError) => {
+          this.errorMessage = err.error.message;
+        },
+      });
     }
-    // TODO need to check if successfully registered
-    // if (this.currentStep === 4) {
-    //   console.log(this.registerForm.value);
-    // } else {
-    //   // Vous pouvez éventuellement ajouter une logique pour mettre en surbrillance les champs invalides ou afficher un message d'erreur
-    // }  onSubmit(): void {
   }
 }

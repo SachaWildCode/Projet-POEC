@@ -29,16 +29,15 @@
             </div>
 
             <div>
-              <button (click)="togglePasswordVisibility('password')">
-                <fa-icon [icon]="passwordVisible.password ? faEyeSlash : faEye"></fa-icon>
-              </button>
-
               <label for="password">Mot de passe</label>
               <input
                 id="password"
                 formControlName="password"
                 [type]="passwordVisible.password ? 'text' : 'password'"
                 placeholder="" />
+              <button (click)="togglePasswordVisibility('password')">
+                <fa-icon [icon]="passwordVisible.password ? faEyeSlash : faEye"></fa-icon>
+              </button>
               <ng-container *ngIf="registerForm.controls['account'].controls['password'].dirty">
                 <ng-container *ngIf="registerForm.controls['account'].controls['password'].errors?.['required']">
                   <small>Le mot de passe est requis.</small>
@@ -59,15 +58,15 @@
             </div>
 
             <div>
-              <button (click)="togglePasswordVisibility('confirmPassword')">
-                <fa-icon [icon]="passwordVisible.confirmPassword ? faEyeSlash : faEye"></fa-icon>
-              </button>
               <label for="confirmPassword">Confirmer le mot de passe</label>
               <input
                 id="confirmPassword"
                 formControlName="confirmPassword"
                 [type]="passwordVisible.confirmPassword ? 'text' : 'password'"
                 placeholder="" />
+              <button (click)="togglePasswordVisibility('confirmPassword')">
+                <fa-icon [icon]="passwordVisible.confirmPassword ? faEyeSlash : faEye"></fa-icon>
+              </button>
 
               <small *ngIf="registerForm.controls['account'].errors?.['PasswordNoMatch']"
                 >Le mot de passe et la confirmation du mot de passe doivent être identiques.</small
@@ -149,38 +148,38 @@
           <h4>Informations d'adresse</h4>
           <div formGroupName="address">
             <div>
-              <label for="street_type">Type de rue</label>
-              <select id="street_type" formControlName="street_type">
+              <label for="streetType">Type de rue</label>
+              <select id="streetType" formControlName="streetType">
                 <option *ngFor="let type of streetTypeOptions" [value]="type">{{ type }}</option>
               </select>
               <small
                 *ngIf="
-                  registerForm.controls['address'].controls['street_type'].touched &&
-                  registerForm.controls['address'].controls['street_type'].errors?.['required']
+                  registerForm.controls['address'].controls['streetType'].touched &&
+                  registerForm.controls['address'].controls['streetType'].errors?.['required']
                 "
                 >Le type de rue est requis.</small
               >
             </div>
 
             <div>
-              <label for="street_number">Numéro de rue</label>
-              <input id="street_number" formControlName="street_number" type="text" placeholder="" />
+              <label for="streetNumber">Numéro de rue</label>
+              <input id="streetNumber" formControlName="streetNumber" type="text" placeholder="" />
               <small
                 *ngIf="
-                  registerForm.controls['address'].controls['street_number'].touched &&
-                  registerForm.controls['address'].controls['street_number'].errors?.['required']
+                  registerForm.controls['address'].controls['streetNumber'].touched &&
+                  registerForm.controls['address'].controls['streetNumber'].errors?.['required']
                 "
                 >Le numéro de rue est requis.</small
               >
             </div>
 
             <div>
-              <label for="street_name">Nom de rue</label>
-              <input id="street_name" formControlName="street_name" type="text" placeholder="" />
+              <label for="streetName">Nom de rue</label>
+              <input id="streetName" formControlName="streetName" type="text" placeholder="" />
               <small
                 *ngIf="
-                  registerForm.controls['address'].controls['street_name'].touched &&
-                  registerForm.controls['address'].controls['street_name'].errors?.['required']
+                  registerForm.controls['address'].controls['streetName'].touched &&
+                  registerForm.controls['address'].controls['streetName'].errors?.['required']
                 "
                 >Le nom de rue est requis.</small
               >
@@ -235,11 +234,14 @@
             </div>
           </div>
         </div>
-        <div *ngIf="currentStep === 4">
+        <div *ngIf="currentStep === 4 && !errorMessage">
           <h3>Inscription réussie</h3>
           <p>Merci pour votre inscription ! Votre inscription a été réussie.</p>
         </div>
-
+        <div *ngIf="errorMessage" class="error-message">
+          <h3>Erreur</h3>
+          <p>{{ errorMessage }}</p>
+        </div>
         <div class="button-container">
           <button *ngIf="currentStep > 1 && currentStep < 4" type="button" (click)="previousStep()">Précédent</button>
           <button *ngIf="currentStep <= 3" type="submit">Valider</button>
