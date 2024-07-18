@@ -1,0 +1,10 @@
+<div class="association-info">
+    <span class="association-name">{{ association.social_name }}</span>
+    
+    <div class="attribution-mois">
+        <input type="range" min="0" max="100" [(ngModel)]="association.attribution_mois" class="slider">
+        <span class="attribution-mois">{{ association.attribution_mois }}%</span>
+    </div>
+    <span class="total-donne">{{ association.total_donne }} </span>
+
+</div>

@@ -1,26 +1,21 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { faFilter, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { AssociationDonationsComponent } from '../association-donations/association-donations.component';
+import { FormsModule } from '@angular/forms';
 
 interface ModelAsso {
   social_name: string;
   total_donne: string;
   attribution_mois: number;
 }
-@Component({
-  selector: 'app-donations2',
-  standalone: true,
-  imports: [FaIconComponent, AssociationDonationsComponent, CommonModule],
-  templateUrl: './donations2.component.html',
-  styleUrl: './donations2.component.scss',
-})
-export class Donations2Component {
-  faFilter = faFilter;
-  faMagnifyingGlass = faMagnifyingGlass;
 
-  @Input() association!: ModelAsso;
+@Component({
+  selector: 'app-association-donations',
+  standalone: true,
+  imports: [FormsModule],
+  templateUrl: './association-donations.component.html',
+  styleUrl: './association-donations.component.scss',
+})
+export class AssociationDonationsComponent {
+  //association: String;
   associations: ModelAsso[] = [
     { social_name: 'Association A', total_donne: '1000 €', attribution_mois: 6 },
     { social_name: 'Association B', total_donne: '2500 €', attribution_mois: 3 },
@@ -38,4 +33,5 @@ export class Donations2Component {
     { social_name: 'Association N', total_donne: '2600 €', attribution_mois: 6 },
     { social_name: 'Association O', total_donne: '1900 €', attribution_mois: 12 },
   ];
+  @Input() association!: ModelAsso;
 }

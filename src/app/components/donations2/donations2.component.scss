@@ -20,7 +20,9 @@ input {
 
 /* Bouton "Partager" */
 #share {
-  position: relative;
+  position: absolute;
+  bottom: 1rem; /* Ajustez la distance par rapport au bas du conteneur */
+  right: 1rem; /* Ajustez la distance par rapport au côté droit du conteneur */
   background-color: var(--color-black);
   color: var(--color-white);
   padding: 0.7rem 1.5rem;
@@ -32,6 +34,11 @@ input {
     transform: scale(1.1);
   }
 }
+.share-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem; /* Ajoutez un espace entre le contenu et le bouton */
+}
 .bottom {
   display: flex;
   justify-content: flex-end;
@@ -39,14 +46,17 @@ input {
   padding-right: 80px;
 }
 .top {
+  flex: 1;
   margin-left: 10px;
   display: flex;
   align-items: center;
   padding-left: 10px;
 }
 .middle {
-  text-align: left;
-  margin-top: 30px;
+  flex: 3;
+  position: relative;
+  //text-align: left;
+  //margin-top: 30px;
 }
 
 /* Bouton "Filtrer" */
@@ -65,18 +75,27 @@ input {
 }
 
 .middle > span {
+  //display: flex;
+  //justify-content: space-between;
   text-align: left;
   padding-right: 20px;
   padding-left: 20px;
 }
-.routercontainer {
-  flex-direction: column;
+.container {
+  //flex-direction: column;
   border: 2px rgb(0, 255, 21) dashed;
-  display: flex;
-  justify-content: center;
+  //display: flex;
+  //justify-content: center;
+  //position: relative;
+  height: 100%;
+  width: 100%;
 }
 .component {
   background: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
 .input-group {
   position: relative;
@@ -90,4 +109,27 @@ span > fa-icon {
   font-size: 1.2rem;
   cursor: pointer;
   padding-bottom: 10px;
+}
+
+.asso-list {
+  height: 200px; /* Définissez la hauteur souhaitée pour la liste */
+  overflow-y: auto; /* Ajoute un scroll vertical si nécessaire */
+  padding: 30px;
+  margin-top: 20px;
+  padding-left: 20px;
+  //overflow-x: hidden;
+  //grid-template-columns: repeat(4, 1fr);
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #e0e0e0;
+    border-radius: 8px;
+  }
+}
+.contributions-asso {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 30px;
 }
