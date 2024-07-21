@@ -7,8 +7,8 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { ApiError } from '../../shared/models/api-error';
 import { IRegisterFormModel } from '../../shared/models/iregister-form-model';
 import { AccountPostRequest, AddressPostRequest, RegisterRequest } from '../../shared/models/register-request';
+import { Gender, StreetType } from '../../shared/models/types';
 import { AuthService } from '../../shared/services/auth-service.service';
-import { Gender, StreetType } from '../../shared/types';
 import { confirmPasswordValidator, passwordValidator } from '../../shared/validators/password';
 import { AuthCarouselComponent } from '../auth-carousel/auth-carousel.component';
 

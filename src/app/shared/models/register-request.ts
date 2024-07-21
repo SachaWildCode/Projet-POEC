@@ -1,4 +1,4 @@
-import { Gender } from '../types';
+import { Gender } from './types';
 
 export interface AccountPostRequest {
   email: string;

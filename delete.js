@@ -10,25 +10,33 @@ function deleteSpecFiles(dir) {
 
     files.forEach(file => {
       const filePath = path.join(dir, file);
-      fs.stat(filePath, (err, stat) => {
-        if (err) {
-          console.error(`Error stating file ${filePath}:`, err);
-          return;
-        }
-
-        if (stat.isDirectory()) {
-          deleteSpecFiles(filePath);
-        } else if (file.endsWith('.spec.ts')) {
-          fs.unlink(filePath, err => {
-            if (err) {
-              console.error(`Error deleting file ${filePath}:`, err);
-            } else {
-              console.log(`Deleted file: ${filePath}`);
-            }
-          });
-        }
-      });
+      handleFile(filePath, file);
     });
+  });
+}
+
+function handleFile(filePath, file) {
+  fs.stat(filePath, (err, stat) => {
+    if (err) {
+      console.error(`Error stating file ${filePath}:`, err);
+      return;
+    }
+
+    if (stat.isDirectory()) {
+      deleteSpecFiles(filePath);
+    } else if (file.endsWith('.spec.ts')) {
+      deleteFile(filePath);
+    }
+  });
+}
+
+function deleteFile(filePath) {
+  fs.unlink(filePath, err => {
+    if (err) {
+      console.error(`Error deleting file ${filePath}:`, err);
+    } else {
+      console.log(`Deleted file: ${filePath}`);
+    }
   });
 }
 

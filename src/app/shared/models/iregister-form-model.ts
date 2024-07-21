@@ -1,6 +1,6 @@
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { Gender, StreetType } from '../types';
+import { Gender, StreetType } from './types';
 
 export interface IRegisterFormModel {
   account: FormGroup<{
