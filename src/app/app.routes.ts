@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-import { Donations2Component } from './components/donations2/donations2.component';
+import { DonationsComponent } from './components/donations/donations.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { AuthGuard } from './core/guards/auth-guard.service';
@@ -29,37 +29,17 @@ export const routes: Routes = [
   {
     path: 'profile',
     component: UserPageComponent,
+    canActivate: [AuthGuard],
     children: [
-      //{
-      //   path: 'compte',
-      //   component: SideBarComponent,
-      // },
-      // {
-      //   path: 'notifications',
-      //   component: SideBarComponent,
-      // },
       {
-        path: 'dons',
-        component: Donations2Component,
+        path: 'donations',
+        component: DonationsComponent,
       },
-      // {
-      //   path: 'paiements',
-      //   component: SideBarComponent,
-      // },
-      // {
-      //   path: 'taxes',
-      //   component: SideBarComponent,
-      // },
     ],
   },
   { path: '', component: LandingPageComponent },
   { path: 'faq', component: FaqPageComponent },
   { path: 'asso', component: AssoPageComponent },
   { path: 'transparency', component: TransparencyPageComponent },
-  {
-    path: 'profile',
-    canActivate: [AuthGuard],
-    component: UserPageComponent,
-  },
   { path: '**', redirectTo: '' },
 ];

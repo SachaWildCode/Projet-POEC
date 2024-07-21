@@ -1,30 +1,25 @@
-
 <div class="sidebar">
-    <h4>Mon compte</h4>
-        <ul>
-            <li>
-                <a [routerLink]="['/profile', 'compte']"><fa-icon [icon]="faUser"></fa-icon>Profile</a>
-            </li>
-            <li>
-                <a [routerLink]="['/profile', 'notifications']" routerLinkActive="['is-active']">
-                <fa-icon [icon]="faBell"></fa-icon>Notifications
-                </a>
-        
-            </li>
-            <li>
-                <a [routerLink]="['/profile', 'dons']" routerLinkActive="['is-active']"
-                ><fa-icon [icon]="faCalendar"></fa-icon>Dons programmés</a
-                >
-            </li>
-            <li>
-                <a [routerLink]="['/profile', 'paiements']" routerLinkActive="['is-active']"
-                ><fa-icon [icon]="faMoney"></fa-icon>Paiements</a
-                >
-            </li>
-            <li>
-                <a [routerLink]="['/profile', 'taxes']" routerLinkActive="['is-active']"
-                ><fa-icon [icon]="faFileInvoice"></fa-icon> Avantages fiscaux</a
-                >
-            </li>
-        </ul>
+  <h4>Mon compte</h4>
+  <ul>
+    <li>
+      <a [routerLink]="['/profile']" [routerLinkActive]="['is-active']" [routerLinkActiveOptions]="{ exact: true }"
+        ><fa-icon [icon]="faUser" />Mon profil</a
+      >
+    </li>
+    <li>
+      <a [routerLink]="['/profile', 'donations']" [routerLinkActive]="['is-active']"
+        ><fa-icon [icon]="faCalendar" />Dons programmés</a
+      >
+    </li>
+    <li>
+      <a [routerLink]="['/profile', 'payments']" [routerLinkActive]="['is-active']"
+        ><fa-icon [icon]="faMoney" />Paiements</a
+      >
+    </li>
+    <li>
+      <a [routerLink]="['/profile', 'taxes']" [routerLinkActive]="['is-active']"
+        ><fa-icon [icon]="faFileInvoice" /> Avantages fiscaux</a
+      >
+    </li>
+  </ul>
 </div>

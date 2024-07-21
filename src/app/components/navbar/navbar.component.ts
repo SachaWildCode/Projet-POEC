@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterModule } from '@angular/router';
+
 import { IUser } from '../../shared/models/iuser';
 import { AuthService } from '../../shared/services/auth-service.service';
 import { UserService } from '../../shared/services/user.service';
@@ -10,24 +11,37 @@ import { UserService } from '../../shared/services/user.service';
   standalone: true,
   imports: [RouterModule, CommonModule],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss',
+  styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
   userInfo: IUser | null = null;
+  isDropdownVisible = false;
 
   constructor(
     private userService: UserService,
     private authService: AuthService
-  ) {}
-  isAuthenticated(): boolean {
-    return this.userService.isAuthenticated();
-  }
-  logout(): void {
-    this.authService.logout();
-  }
-  ngOnInit(): void {
+  ) {
     this.userService.userInfo$.subscribe(user => {
       this.userInfo = user;
     });
+  }
+
+  isAuthenticated(): boolean {
+    return this.userService.isAuthenticated();
+  }
+
+  logout(): void {
+    this.authService.logout();
+  }
+
+  toggleDropdown() {
+    this.isDropdownVisible = !this.isDropdownVisible;
+  }
+  @HostListener('document:click', ['$event'])
+  handleClickOutside(event: Event) {
+    const target = event.target as HTMLElement;
+    if (!target.closest('.profile-menu')) {
+      this.isDropdownVisible = false;
+    }
   }
 }

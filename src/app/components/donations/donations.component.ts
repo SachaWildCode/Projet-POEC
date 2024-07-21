@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faFilter, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+
 import { AssociationDonationsComponent } from '../association-donations/association-donations.component';
 
 interface ModelAsso {
@@ -10,13 +11,13 @@ interface ModelAsso {
   attribution_mois: number;
 }
 @Component({
-  selector: 'app-donations2',
+  selector: 'app-donations',
   standalone: true,
   imports: [FaIconComponent, AssociationDonationsComponent, CommonModule],
-  templateUrl: './donations2.component.html',
-  styleUrl: './donations2.component.scss',
+  templateUrl: './donations.component.html',
+  styleUrl: './donations.component.scss',
 })
-export class Donations2Component {
+export class DonationsComponent {
   faFilter = faFilter;
   faMagnifyingGlass = faMagnifyingGlass;
 
