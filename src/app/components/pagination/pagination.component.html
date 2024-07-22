@@ -1,0 +1,21 @@
+<nav>
+  <ul>
+    <li>
+      <button (click)="previous()">
+        <fa-icon [icon]="leftArrow"></fa-icon>
+      </button>
+    </li>
+  </ul>
+  <div>
+    <ng-container *ngFor="let page of getPages(); index as i">
+      <button (click)="onPageChange(page)" [class.active]="page === currentPage">{{ page }}</button>
+    </ng-container>
+  </div>
+  <ul>
+    <li>
+      <button (click)="next()">
+        <fa-icon [icon]="rightArrow"></fa-icon>
+      </button>
+    </li>
+  </ul>
+</nav>

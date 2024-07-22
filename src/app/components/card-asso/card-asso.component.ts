@@ -1,8 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { IcardAsso } from '../../shared/models/icard-asso';
-import { faHeart, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CommonModule } from '@angular/common';
+import { AfterViewInit, Component, Input } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faHeart, faPlus } from '@fortawesome/free-solid-svg-icons';
+
+import { Content } from '../../shared/models/organization-model';
+
 @Component({
   selector: 'app-card-asso',
   standalone: true,
@@ -10,14 +12,21 @@ import { CommonModule } from '@angular/common';
   templateUrl: './card-asso.component.html',
   styleUrl: './card-asso.component.scss',
 })
-export class CardAssoComponent implements OnInit {
-  @Input() association!: IcardAsso;
-  @Input() card_width!: string;
+export class CardAssoComponent implements AfterViewInit {
+  @Input() association!: Content;
   percent = 0;
   faHeart = faHeart;
   faPlus = faPlus;
 
-  ngOnInit() {
-    this.percent = (this.association.objectif_current / this.association.objectif_total) * 100;
+  // using js to capitalize because webkit-box blocks from using capitalize
+  ngAfterViewInit() {
+    const clampTextElements: NodeListOf<Element> = document.querySelectorAll('.description');
+    clampTextElements.forEach(element => {
+      const text: string | null = element.textContent;
+      if (text && text.length > 0) {
+        const transformedText: string = text.charAt(0).toUpperCase() + text.slice(1);
+        element.textContent = transformedText;
+      }
+    });
   }
 }

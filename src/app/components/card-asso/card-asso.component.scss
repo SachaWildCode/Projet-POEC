@@ -1,117 +1,96 @@
-main {
+:host {
+  height: 50%;
   display: flex;
   flex-direction: column;
-  background-color: var(--color-white);
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card {
+  border: 1px solid #ccc;
   border-radius: 8px;
+  padding: 16px;
+  background-color: var(--color-white);
   box-shadow: var(--button-box-shadow);
-  position: relative;
-  transition: transform 0.3s ease-in-out;
-  transform: scale(1);
-  padding: 24px;
-  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 300px;
+  height: 100%;
+  flex: 1;
+}
 
-  &:hover {
-    transform: scale(1.03);
-  }
-  i {
-    position: absolute;
-    top: -0.5rem;
-    right: -0.5rem;
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-    border: none;
-    background-color: var(--color-white);
-    box-shadow: var(--button-box-shadow);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    line-height: 0;
-  }
-  .bottom_card {
-    flex: 1;
-    height: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 1rem;
-    section {
-      h4 {
-        display: -webkit-box;
-        margin-bottom: 8px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        word-wrap: break-word;
-        word-break: break-word;
-        -webkit-hyphens: auto;
-        -moz-hyphens: auto;
-        hyphens: auto;
-      }
-      p {
-        display: -webkit-box;
-        width: 100%;
-        font-size: calc(var(--font-size-small));
-        height: calc(var(--font-size-small) * 2.5);
-        overflow: hidden;
-        text-overflow: ellipsis;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        word-wrap: break-word;
-        word-break: break-word;
-        -webkit-hyphens: auto;
-        -moz-hyphens: auto;
-        hyphens: auto;
-      }
-      span {
-        max-height: 1rem;
-        overflow: hidden;
-        font-size: calc(var(--font-size-small));
-      }
-      .progress_bar {
-        height: 0.4rem;
-        width: 100%;
-        border-radius: 1rem;
-        outline: none;
-      }
-    }
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
 
-    .card_info {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-      small {
-        -webkit-line-clamp: 1;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        word-wrap: break-word;
-        word-break: break-word;
-        -webkit-hyphens: auto;
-        -moz-hyphens: auto;
-        hyphens: auto;
-        fa-icon {
-          color: red;
-        }
-      }
-      p {
-        border: 1px solid lightgray;
-        border-radius: 1rem;
-        font-size: calc(var(--font-size-small));
-        padding: 4px 12px;
-        display: -webkit-box;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        word-wrap: break-word;
-        word-break: break-word;
-        -webkit-hyphens: auto;
-        -moz-hyphens: auto;
-        hyphens: auto;
-      }
-    }
+.card-header h4 {
+  margin: 0;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+.type {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  padding: 4px 12px;
+  border-radius: 8px;
+  color: #fff;
+  line-height: calc(1rem + 8px);
+  max-width: 60%;
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-body p {
+  margin: 8px 0;
+}
+
+.address {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.address h3 {
+  margin-bottom: 8px;
+}
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  &::after {
+    content: '.';
+  }
+}
+@media screen and (max-width: 768px) {
+  .card {
+    width: 100%;
+    min-width: 200px;
   }
 }

@@ -1,0 +1,83 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  margin: 0 4px;
+}
+
+a {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  line-height: 38px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 18px;
+}
+
+a.current,
+a:not(.more):hover {
+  background-color: var(--color-black);
+  color: #fff;
+  font-weight: 700;
+}
+
+a.more:hover,
+a.current {
+  cursor: default;
+  text-decoration: none;
+}
+
+button {
+  background-color: var(--color-white);
+  border: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  border-radius: 4px;
+  color: var(--color-black);
+  padding: 8px 16px;
+}
+
+button[disabled] {
+  cursor: default;
+  color: var(--color-black);
+}
+
+button:not([disabled]):hover {
+  cursor: pointer;
+  outline: none;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 8px;
+}
+
+.active {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-weight: 700;
+}
