@@ -1,12 +1,15 @@
 .sidebar {
-  width: 100%;
-  min-width: 220px;
-  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white); // Light gray background
+  padding: 16px;
+  min-height: 100%; // Ensure the main area covers the full height of the viewport
   height: 100%;
-  background-color: #f9f9f9;
   border-radius: 8px;
-  padding: 8px;
+  position: relative;
+  padding-bottom: 80px;
   box-shadow: var(--button-box-shadow);
+
   h4 {
     padding: 8px;
     padding-bottom: 16px;

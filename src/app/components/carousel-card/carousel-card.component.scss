@@ -16,7 +16,12 @@ main {
   gap: 2rem;
   animation: scroll-horizontal 60s 0s linear infinite;
   will-change: transform;
-  padding: 20px 0;
+  padding: 16px 0;
+
+  & > * {
+    min-height: 220px;
+    flex: 1;
+  }
 }
 
 .carousel-card app-card-asso {

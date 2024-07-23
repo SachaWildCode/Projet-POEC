@@ -1,25 +1,13 @@
-<div class="container">
-    <div class="component">
-        <h4>Gerer vos dons</h4>
-        <div class="top">
-            <span class="input-group">
-                <fa-icon [icon]="faMagnifyingGlass"></fa-icon> 
-                <input type="text" placeholder="Search" />
-            </span>
-            <button type="button" id="filter"><fa-icon [icon]="faFilter"></fa-icon></button>
-        </div>
-    <div class="middle">
-        <div class="contributions-asso">
-            <span>Associations</span>
-            <span>Attributions/mois</span>
-            <span>Total donné</span>
-        </div>
-        <div class="asso-list">
-            <ng-container *ngFor="let association of associations">
-                <app-association-donations [association]="association"></app-association-donations>
-            </ng-container>
-        </div>
-        <button type="button" id="share">Partager</button>  
-    </div>
-    </div>
-</div>
+<main>
+  <h2>Gerer vos dons</h2>
+  <div class="donation-container">
+    <ng-container *ngFor="let donation of donations; let i = index">
+      <app-donation-card
+        [donation]="donation"
+        [index]="i"
+        (percentageChange)="updateDonationPercentage($event.index, $event.percentage)">
+      </app-donation-card>
+    </ng-container>
+  </div>
+  <button (click)="validateDonations()">Validate</button>
+</main>

@@ -1,0 +1,10 @@
+<div class="donation-card">
+  <div class="donation-details">
+    <p class="donation-name">{{ donation.organization.name }}</p>
+    <div class="donation-slider">
+      <input type="range" min="0" max="100" [value]="donation.percentage" (input)="onSliderChange($event)" />
+    </div>
+    <p class="donation-percentage">{{ donation.percentage | number: '1.2-2' }}%</p>
+  </div>
+  <p class="donation-amount">{{ donation.amount | currency: 'EUR' }}</p>
+</div>

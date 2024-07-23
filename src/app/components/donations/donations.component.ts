@@ -1,42 +1,92 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faFilter, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
-import { AssociationDonationsComponent } from '../association-donations/association-donations.component';
+import { Donation } from '../../shared/models/donation_model';
+import { Content } from '../../shared/models/organization-model';
+import { DonationService } from '../../shared/services/donations.service';
+import { DonationCardComponent } from '../donation-card/donation-card.component';
 
-interface ModelAsso {
-  social_name: string;
-  total_donne: string;
-  attribution_mois: number;
-}
 @Component({
   selector: 'app-donations',
   standalone: true,
-  imports: [FaIconComponent, AssociationDonationsComponent, CommonModule],
+  imports: [FaIconComponent, CommonModule, DonationCardComponent],
   templateUrl: './donations.component.html',
-  styleUrl: './donations.component.scss',
+  styleUrls: ['./donations.component.scss'],
 })
 export class DonationsComponent {
   faFilter = faFilter;
   faMagnifyingGlass = faMagnifyingGlass;
+  donations: Donation[] = [];
+  totalPercentage = 0;
 
-  @Input() association!: ModelAsso;
-  associations: ModelAsso[] = [
-    { social_name: 'Association A', total_donne: '1000 €', attribution_mois: 6 },
-    { social_name: 'Association B', total_donne: '2500 €', attribution_mois: 3 },
-    { social_name: 'Association C', total_donne: '800 €', attribution_mois: 9 },
-    { social_name: 'Association D', total_donne: '1500 €', attribution_mois: 12 },
-    { social_name: 'Association E', total_donne: '3000 €', attribution_mois: 6 },
-    { social_name: 'Association F', total_donne: '2000 €', attribution_mois: 9 },
-    { social_name: 'Association G', total_donne: '1200 €', attribution_mois: 3 },
-    { social_name: 'Association H', total_donne: '2800 €', attribution_mois: 6 },
-    { social_name: 'Association I', total_donne: '1800 €', attribution_mois: 9 },
-    { social_name: 'Association J', total_donne: '2200 €', attribution_mois: 12 },
-    { social_name: 'Association K', total_donne: '1700 €', attribution_mois: 6 },
-    { social_name: 'Association L', total_donne: '2400 €', attribution_mois: 3 },
-    { social_name: 'Association M', total_donne: '1100 €', attribution_mois: 9 },
-    { social_name: 'Association N', total_donne: '2600 €', attribution_mois: 6 },
-    { social_name: 'Association O', total_donne: '1900 €', attribution_mois: 12 },
-  ];
+  constructor(private donationService: DonationService) {
+    this.donationService.getDonationQueue().subscribe((data: Content[]) => {
+      this.donations = data.map(content => ({
+        organization: content,
+        amount: 0,
+        percentage: 0,
+      }));
+    });
+  }
+
+  updateDonationPercentage(index: number, newPercentage: number) {
+    const oldPercentage = this.donations[index].percentage;
+    const percentageDiff = newPercentage - oldPercentage;
+    const newTotalPercentage = this.totalPercentage + percentageDiff;
+
+    if (newTotalPercentage > 100) {
+      this.adjustOtherPercentages(index, newTotalPercentage - 100);
+      this.totalPercentage = 100;
+    } else {
+      this.totalPercentage = newTotalPercentage;
+    }
+
+    this.donations[index].percentage = this.roundToTwoDecimals(newPercentage);
+  }
+
+  adjustOtherPercentages(changedIndex: number, excessPercentage: number) {
+    const otherDonations = this.donations.filter((_, i) => i !== changedIndex);
+    const totalOtherPercentage = otherDonations.reduce((sum, donation) => sum + donation.percentage, 0);
+
+    otherDonations.forEach(donation => {
+      const reduction = (donation.percentage / totalOtherPercentage) * excessPercentage;
+      donation.percentage = this.roundToTwoDecimals(donation.percentage - reduction);
+    });
+  }
+
+  roundToTwoDecimals(value: number): number {
+    return Math.round(value * 100) / 100;
+  }
+
+  validateDonations() {
+    //TODO send to backend
+    // console.log('Donation Values:');
+    // this.donations.forEach(donation => {
+    //   const org = donation.organization;
+    //   console.log(`Organization:
+    //     - Name: ${org.name}
+    //     - ID: ${org.id}
+    //     - Sigle: ${org.sigle}
+    //     - Description: ${org.description}
+    //     - IBAN: ${org.iban}
+    //     - Creation Date: ${org.creationDate}
+    //     - Groupement: ${org.groupement}
+    //     - ID RNA: ${org.idRna}
+    //     - ID EX: ${org.idEx}
+    //     - Date Modif RNA: ${org.dateModifRna}
+    //     - Regime: ${org.regime}
+    //     - Nature: ${org.nature}
+    //     - Util Publique: ${org.utilPublique}
+    //     - Eligibilite Cec: ${org.eligibiliteCec}
+    //     - Active Sirene: ${org.activeSirene}
+    //     - Active: ${org.active}
+    //     - Impots Commerciaux: ${org.impotsCommerciaux}
+    //     - Address: ${org.addressOrganization.cplt1}, ${org.addressOrganization.cp} ${org.addressOrganization.commune}, ${org.addressOrganization.pays}
+    //     - Type: ${org.type.libTheme} (Color: ${org.type.color})
+    //   Donation Amount: ${donation.amount}
+    //   Donation Percentage: ${donation.percentage.toFixed(2)}%`);
+    // });
+  }
 }

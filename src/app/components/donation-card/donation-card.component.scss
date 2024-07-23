@@ -1,0 +1,38 @@
+.donation-card {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .donation-details {
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+    .donation-name {
+      flex: 1;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .donation-slider {
+      flex: 2;
+      margin-right: 10px;
+    }
+
+    .donation-percentage {
+      flex: 0.5;
+      text-align: right;
+    }
+  }
+
+  .donation-amount {
+    flex: 0.5;
+    text-align: right;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+}
