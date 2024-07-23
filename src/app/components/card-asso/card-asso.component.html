@@ -3,17 +3,17 @@
     <h4>{{ association.name }}</h4>
   </div>
   <div class="card-body">
-    <p>
+    <!-- <p>
       <small>RNA: {{ association.idRna }}</small>
-    </p>
+    </p> -->
     <p class="description">{{ association.description }}</p>
-    <div class="address">
+    <!-- <div class="address">
       <p>
         {{ association.addressOrganization.cplt1 }} {{ association.addressOrganization.cp }}
         {{ association.addressOrganization.commune }}
       </p>
-    </div>
-    <p><strong>Date de création :</strong> {{ association.creationDate | date: 'dd/MM/yyyy' }}</p>
+    </div> -->
+    <!-- <p><strong>Date de création :</strong> {{ association.creationDate | date: 'dd/MM/yyyy' }}</p> -->
   </div>
   <div class="card-footer">
     <p class="type" [style.background-color]="association.type.color">

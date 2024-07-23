@@ -2,13 +2,15 @@
   <div class="search">
     <app-searchbar></app-searchbar>
   </div>
-  <app-pagination
-    [totalPages]="totalPages"
-    [size]="size"
-    [totalElements]="totalElements"
-    [currentPage]="currentPage"
-    (pageChange)="onPageChange($event)"></app-pagination>
-  <div class="asso-list">
-    <app-card-asso *ngFor="let assos of assoList" [association]="assos"></app-card-asso>
+  <div class="asso-list" id="asso-list">
+    <div class="asso-list-container" id="asso-list-container">
+      <app-card-asso *ngFor="let assos of assoList" [association]="assos"></app-card-asso>
+      <app-pagination
+        [totalPages]="totalPages"
+        [size]="size"
+        [totalElements]="totalElements"
+        [currentPage]="currentPage"
+        (pageChange)="onPageChange($event)"></app-pagination>
+    </div>
   </div>
 </main>
