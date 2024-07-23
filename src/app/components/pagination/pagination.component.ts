@@ -81,13 +81,15 @@ export class PaginationComponent implements OnInit {
     const pages = [];
     const startPage = Math.max(0, this.currentPage - this.pageRange);
     const endPage = Math.min(this.totalPages - 1, this.currentPage + this.pageRange);
-
+    pages.push(0);
     for (let i = startPage; i <= endPage; i++) {
-      if (i === 0 || i === this.totalPages - 1 || (i >= startPage && i <= endPage)) {
+      if (i !== 0 && i !== this.totalPages) {
         pages.push(i);
       }
     }
-
+    if (endPage < this.totalPages - 1) {
+      pages.push(this.totalPages - 1);
+    }
     return pages.sort((a, b) => a - b);
   }
 }

@@ -1,0 +1,15 @@
+<div class="popin">
+  <div class="popin-content">
+    <p>
+      Vous avez sélectionné l'association <span class="popin-content__name">{{ asso?.name }}</span>
+    </p>
+    <p>Vous avez {{ donations$ | async }} dons en attente</p>
+    <div class="popin-content__buttons">
+      <button (click)="continueSurfing()">Ajouter à ma liste</button>
+      <button (click)="goToDonate()">Aller vers la page de don</button>
+      <button (click)="cancel()">
+        <fa-icon [icon]="faIconClose"></fa-icon>
+      </button>
+    </div>
+  </div>
+</div>
