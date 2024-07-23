@@ -18,6 +18,7 @@
   min-width: 300px;
   height: 100%;
   flex: 1;
+  transition: transform 0.2s ease-in-out;
 }
 
 .card-header {
@@ -92,4 +93,8 @@
     width: 100%;
     min-width: 200px;
   }
+}
+
+.card:hover {
+  transform: scale(1.02); /* Zoom in effect */
 }

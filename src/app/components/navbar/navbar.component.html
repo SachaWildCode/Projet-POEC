@@ -18,6 +18,9 @@
         <button [routerLink]="['/auth/login']">Connexion</button>
       } @else {
         <div role="presentation" class="profile-menu" (click)="toggleDropdown()">
+          <section *ngIf="donationQueueLength > 0" class="donation-queue-length">
+            <span>{{ donationQueueLength }}</span>
+          </section>
           <img [src]="this.userInfo?.avatarUrl" alt="" class="profile-image" />
           <div class="dropdown-content" *ngIf="isDropdownVisible">
             <a [routerLink]="['/profile']">Profil</a>

@@ -3,10 +3,13 @@
     <p>
       Vous avez sélectionné l'association <span class="popin-content__name">{{ asso?.name }}</span>
     </p>
-    <p>Vous avez {{ donations$ | async }} dons en attente</p>
+    <p *ngIf="donations$ | async as donations">
+      Vous avez {{ donations }} {{ donations > 1 ? 'dons' : 'don' }} en attente
+    </p>
+
     <div class="popin-content__buttons">
       <button (click)="continueSurfing()">Ajouter à ma liste</button>
-      <button (click)="goToDonate()">Aller vers la page de don</button>
+      <button *ngIf="donations$ | async as donations" (click)="goToDonate()">Aller vers la page de don</button>
       <button (click)="cancel()">
         <fa-icon [icon]="faIconClose"></fa-icon>
       </button>

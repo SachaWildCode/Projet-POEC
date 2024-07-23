@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 
 import { Content } from '../../shared/models/organization-model';
 import { DonationService } from '../../shared/services/donations.service';
+import { UserService } from '../../shared/services/user.service';
 
 @Component({
   selector: 'app-popin',
@@ -20,7 +22,11 @@ export class PopinComponent {
   faIconClose = faXmark;
   donations$: Observable<number>;
 
-  constructor(private donationService: DonationService) {
+  constructor(
+    private donationService: DonationService,
+    private router: Router,
+    private userService: UserService
+  ) {
     this.donations$ = this.donationService.getDonationQueueLength();
   }
 
@@ -31,12 +37,17 @@ export class PopinComponent {
     this.closePopin.emit();
   }
 
-  goToDonate() {
-    if (this.asso) {
-      this.donationService.addDonation(this.asso);
+  async goToDonate() {
+    try {
+      if (this.asso && this.userService.isAuthenticated()) {
+        await this.router.navigate(['/profile/donations']);
+      } else {
+        await this.router.navigate(['/auth/login']);
+      }
+    } catch (error) {
+      console.error('Error navigating to donate page:', error);
     }
     this.closePopin.emit();
-    // this.router.navigate(['/donate']);
   }
 
   cancel() {
