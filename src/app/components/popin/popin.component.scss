@@ -13,7 +13,6 @@
   align-items: center;
   .popin-content {
     min-width: 200px;
-    min-height: 200px;
     max-width: 90vw; // To ensure it doesn't stretch too wide on large screens
     max-height: 90vh; // To ensure it doesn't stretch too tall on large screens
     background-color: white;
@@ -24,18 +23,30 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    gap: 8px;
-    overflow: auto; // Allows scrolling if content overflows
     position: relative;
-
+    gap: 16px;
     &__name {
       display: block;
-      font-weight: bold;
-      max-width: 300px;
       word-wrap: break-word;
       overflow-wrap: break-word;
       hyphens: auto;
       margin: 0 auto;
+      font-weight: bold;
+      max-width: 300px;
+    }
+    &__desc {
+      text-align: justify;
+      display: block;
+      max-width: 480px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+      margin: 0 auto;
+      max-height: auto;
+      overflow-y: auto;
+      &::first-letter {
+        text-transform: capitalize;
+      }
     }
     &__buttons {
       display: flex;

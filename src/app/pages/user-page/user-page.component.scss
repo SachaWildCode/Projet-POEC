@@ -1,6 +1,6 @@
 :host {
   display: flex;
-  flex: 1;
+  height: calc(100vh - 9rem);
 }
 main {
   padding: 0 5%;
@@ -11,6 +11,8 @@ main {
 }
 .sidebarcontainer {
   flex: 1;
+  height: 100%;
+  border: 2px blue dashed;
 }
 .routercontainer {
   flex: 3;

@@ -3,6 +3,7 @@
     <p>
       Vous avez sélectionné l'association <span class="popin-content__name">{{ asso?.name }}</span>
     </p>
+    <p class="popin-content__desc">{{ asso?.description }}</p>
     <p *ngIf="donations$ | async as donations">
       Vous avez {{ donations }} {{ donations > 1 ? 'dons' : 'don' }} en attente
     </p>
