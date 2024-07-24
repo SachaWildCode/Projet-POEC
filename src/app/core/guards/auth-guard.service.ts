@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
+
 import { UserService } from '../../shared/services/user.service';
 
 @Injectable({
@@ -16,6 +17,7 @@ export class AuthGuard {
       return true;
     } else {
       void this.router.navigate(['/auth/login']);
+      console.error('AuthGuard: User is not authenticated');
       return false;
     }
   };

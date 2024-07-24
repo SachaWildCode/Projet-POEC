@@ -1,6 +1,8 @@
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { APP_INITIALIZER, ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
+import { provideToastr } from 'ngx-toastr';
 import { lastValueFrom } from 'rxjs';
 
 import { routes } from './app.routes';
@@ -23,6 +25,14 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient(withInterceptors([authInterceptor])),
+    provideAnimations(), // required animations providers
+    provideToastr({
+      timeOut: 1500,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+      progressBar: true,
+      newestOnTop: false,
+    }), // Toastr providers
     UserService,
     {
       provide: APP_INITIALIZER,

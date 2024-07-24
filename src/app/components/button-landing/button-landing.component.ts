@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from '../../shared/services/user.service';
 
 @Component({
   selector: 'app-button-landing',
@@ -10,21 +9,10 @@ import { UserService } from '../../shared/services/user.service';
   styleUrl: './button-landing.component.scss',
 })
 export class ButtonLandingComponent {
-  constructor(
-    private router: Router,
-    private userService: UserService
-  ) {}
+  constructor(private router: Router) {}
 
   give() {
-    if (this.userService.isAuthenticated()) {
-      this.router.navigate(['/asso']).catch((error: unknown) => {
-        console.error('Error navigating to dashboard:', error);
-      });
-    } else {
-      this.router.navigate(['/auth/login']).catch((error: unknown) => {
-        console.error('Error navigating to login:', error);
-      });
-    }
+    void this.router.navigateByUrl('/asso?page=0');
   }
 
   goToFaq() {

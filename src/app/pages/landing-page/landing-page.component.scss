@@ -1,5 +1,4 @@
 :host {
-  display: flex;
   flex: 1;
 }
 main {
@@ -8,8 +7,10 @@ main {
   flex-direction: column;
   width: 100%;
   gap: 16px;
+  height: 100%;
   padding: 0 5%;
   overflow: hidden;
+  justify-content: space-evenly;
 
   .title {
     flex: 3;

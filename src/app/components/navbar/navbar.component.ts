@@ -37,7 +37,7 @@ export class NavbarComponent {
   }
 
   logout(): void {
-    this.authService.logout();
+    this.authService.logout().subscribe();
   }
 
   toggleDropdown() {

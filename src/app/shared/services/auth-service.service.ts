@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
 import { IUser } from '../models/iuser';
 import { RegisterRequest } from '../models/register-request';
 import { UserService } from '../services/user.service';
+import { DonationService } from './donations.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,14 +16,13 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private userService: UserService
+    private userService: UserService,
+    private donationService: DonationService
   ) {} // Inject UserService
 
   login(email: string, password: string): Observable<IUser> {
     return this.http.post<IUser>(`${this.baseUrl}/auth/login`, { email, password }).pipe(
-      tap(() => {
-        this.userService.getUser().subscribe(); // Fetch and set user info after login
-      })
+      switchMap(() => this.userService.getUser()) // Fetch and set user info after login
     );
   }
 
@@ -32,6 +32,7 @@ export class AuthService {
 
   logout(): Observable<unknown> {
     this.userService.clearUser();
-    return this.http.post(`${this.baseUrl}/auth/logout`, {}, { withCredentials: true });
+    this.donationService.clearQueue(); // Clear donation queue on logout
+    return this.http.get(`${this.baseUrl}/auth/logout`, { withCredentials: true });
   }
 }
