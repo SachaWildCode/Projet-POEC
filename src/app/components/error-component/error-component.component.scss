@@ -1,0 +1,55 @@
+.container {
+  position: absolute; /* Utilisez absolute ou fixed selon vos besoins */
+  top: 0; /* Remplacez 50% par 0 pour occuper tout l'espace vertical */
+  left: 0; /* Pour occuper tout l'espace horizontal */
+  right: 0; /* Pour étendre jusqu'à la droite */
+  bottom: 0; /* Pour étendre jusqu'en bas */
+  background-color: rgba($color: #000000, $alpha: 0.7);
+  border-radius: 10px;
+  padding: 2rem;
+  //margin: 2rem;// to delete
+  //text-align:center;
+  height: 100vh;
+  width: 100%;
+  //box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between; /* Centrer le contenu verticalement */
+  align-items: center; /* Centrer le contenu horizontalement */ //gauche
+  color: aliceblue;
+}
+
+.container h3 {
+  font-size: 3rem;
+  //margin-bottom: 0.5rem;
+  padding: inherit;
+  //padding-left: 50px;
+  margin-top: 50px;
+}
+
+.container h4 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.container p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.container button {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  box-shadow: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;
+}
+
+.container button:active {
+  transform: scale(1.1);
+}
