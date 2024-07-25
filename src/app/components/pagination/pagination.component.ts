@@ -26,13 +26,24 @@ export class PaginationComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute
   ) {}
+  // media query
+  isMobile = window.innerWidth < 798;
+  // on resize if innerwidth is less than 798 then isMobile is true
 
   ngOnInit() {
+    this.updatePageRange();
+    window.addEventListener('resize', this.updatePageRange.bind(this));
+
     this.route.queryParams.subscribe(params => {
       const page = params['page'] as string;
       this.currentPage = +page;
       this.pageChange.emit(this.currentPage);
     });
+  }
+
+  private updatePageRange() {
+    this.isMobile = window.innerWidth < 798;
+    this.pageRange = this.isMobile ? 2 : 5;
   }
 
   previous() {

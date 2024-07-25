@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { DonationsComponent } from './components/donations/donations.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
+import { UnderConstructComponent } from './components/under-construct/under-construct.component';
 import { AuthGuard } from './core/guards/auth-guard.service';
 import { AssoPageComponent } from './pages/asso-page/asso-page.component';
 import { AuthPageComponent } from './pages/auth-page/auth-page.component';
@@ -34,6 +35,14 @@ export const routes: Routes = [
       {
         path: 'donations',
         component: DonationsComponent,
+      },
+      {
+        path: '',
+        component: UnderConstructComponent,
+      },
+      {
+        path: 'payments',
+        component: UnderConstructComponent,
       },
     ],
   },

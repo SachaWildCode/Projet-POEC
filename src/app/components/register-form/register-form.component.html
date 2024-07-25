@@ -35,7 +35,7 @@
                 formControlName="password"
                 [type]="passwordVisible.password ? 'text' : 'password'"
                 placeholder="" />
-              <button (click)="togglePasswordVisibility('password')">
+              <button type="button" (click)="togglePasswordVisibility('password')">
                 <fa-icon [icon]="passwordVisible.password ? faEyeSlash : faEye"></fa-icon>
               </button>
               <ng-container *ngIf="registerForm.controls['account'].controls['password'].dirty">
@@ -64,7 +64,7 @@
                 formControlName="confirmPassword"
                 [type]="passwordVisible.confirmPassword ? 'text' : 'password'"
                 placeholder="" />
-              <button (click)="togglePasswordVisibility('confirmPassword')">
+              <button type="button" (click)="togglePasswordVisibility('confirmPassword')">
                 <fa-icon [icon]="passwordVisible.confirmPassword ? faEyeSlash : faEye"></fa-icon>
               </button>
 

@@ -1,21 +1,74 @@
 services:
-  heartlink:
-    image: sachawildcode/projet-poec:latest
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: heartlink
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mysql-data:/var/lib/mysql
     networks:
       - heartlink_network
-    container_name: heartlink
+    env_file:
+      - .env
+    healthcheck:
+      test: ['CMD-SHELL', 'mysqladmin ping -h localhost']
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+  springboot:
+    image: sachawildcode/heartlink_back:latest
+    container_name: springboot
     restart: unless-stopped
-  cloudflare:
-    image: cloudflare/cloudflared
-    container_name: heartlink-cloudflare
-    command: tunnel run
+    depends_on:
+      mysql:
+        condition: service_healthy
     environment:
-      - TUNNEL_TOKEN=$TUNNEL_TOKEN
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/heartlink?createDatabaseIfNotExist=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: ${MYSQL_USER}
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRATION: ${JWT_EXPIRATION}
+      COOKIE_EXPIRATION: ${COOKIE_EXPIRATION}
+      SPRING_PROFILES_ACTIVE: prod
+    networks:
+      - heartlink_network
+    env_file:
+      - .env
+    ports:
+      - '8080:8080'
+
+  heartlink:
+    image: sachawildcode/projet-poec:latest
+    container_name: heartlink
     restart: unless-stopped
     networks:
       - heartlink_network
     env_file:
       - .env
+    ports:
+      - '80:80'
+
+  cloudflare:
+    image: cloudflare/cloudflared
+    container_name: heartlink-cloudflare
+    command: tunnel run
+    environment:
+      TUNNEL_TOKEN: ${TUNNEL_TOKEN}
+    restart: unless-stopped
+    networks:
+      - heartlink_network
+    env_file:
+      - .env
+
+volumes:
+  mysql-data:
+
 networks:
   heartlink_network:
     name: heartlink_network

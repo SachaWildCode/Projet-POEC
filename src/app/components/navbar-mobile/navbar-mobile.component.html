@@ -18,9 +18,22 @@
       <li>
         <a [routerLink]="['/transparency']" [routerLinkActive]="['is-active']"><fa-icon [icon]="faEye"></fa-icon></a>
       </li>
-      <li>
-        <a [routerLink]="['/auth/login']" [routerLinkActive]="['is-active']"><fa-icon [icon]="faUser"></fa-icon> </a>
-      </li>
+      @if (!isAuthenticated()) {
+        <li>
+          <a [routerLink]="['/auth/login']" [routerLinkActive]="['is-active']"><fa-icon [icon]="faUser"></fa-icon> </a>
+        </li>
+      } @else {
+        <div role="presentation" class="profile-menu" (click)="toggleDropdown()">
+          <section *ngIf="donationQueueLength > 0" class="donation-queue-length">
+            <span>{{ donationQueueLength }}</span>
+          </section>
+          <img [src]="this.userInfo?.avatarUrl" alt="" class="profile-image" />
+          <div class="dropdown-content" *ngIf="isDropdownVisible">
+            <a [routerLink]="['/profile']">Profil</a>
+            <a role="presentation" (click)="logout()">Déconnexion</a>
+          </div>
+        </div>
+      }
     </ul>
   </section>
 </main>

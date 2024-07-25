@@ -9,7 +9,6 @@ import { tap } from 'rxjs';
 
 import { AuthService } from '../../shared/services/auth-service.service';
 import { RouterHistoryService } from '../../shared/services/router-history.service';
-import { passwordValidator } from '../../shared/validators/password';
 import { AuthCarouselComponent } from '../auth-carousel/auth-carousel.component';
 
 @Component({
@@ -34,7 +33,7 @@ export class LoginFormComponent {
   ) {
     this.loginForm = this.fb.group({
       email: ['default@example.com', [Validators.required, Validators.email]],
-      password: ['defaultPassword1234*', [Validators.required, passwordValidator]],
+      password: ['defaultPassword1234*', [Validators.required]],
       rememberMe: [false],
     });
   }

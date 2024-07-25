@@ -1,0 +1,13 @@
+.under-construct {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  min-height: 100%;
+  gap: 2rem;
+  text-align: center;
+  backdrop-filter: blur(40px) saturate(140%);
+  background-color: rgba(0, 100, 42, 0.1);
+  box-shadow: var(--button-box-shadow);
+}
