@@ -3,8 +3,9 @@ FROM node:lts AS build-stage
 WORKDIR /app
 
 COPY ./ /app/
-RUN npm install && \
-    npm run build --prod && \
+RUN npm install -g pnpm && \
+    pnpm install && \
+    pnpm run build && \
     rm -rf /app/node_modules
 
 FROM nginx:stable
