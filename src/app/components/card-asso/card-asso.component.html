@@ -1,19 +1,23 @@
 <div class="card">
   <div class="card-header">
     <h4>{{ association.name }}</h4>
+    <p class="rna">
+      <small>RNA: {{ association.idRna }}</small>
+    </p>
   </div>
   <div class="card-body">
-    <!-- <p>
-      <small>RNA: {{ association.idRna }}</small>
-    </p> -->
     <p class="description">{{ association.description }}</p>
-    <!-- <div class="address">
+    <div class="address">
       <p>
-        {{ association.addressOrganization.cplt1 }} {{ association.addressOrganization.cp }}
-        {{ association.addressOrganization.commune }}
+        <small
+          >{{ association.addressOrganization.cplt1 }} {{ association.addressOrganization.cp }}
+          {{ association.addressOrganization.commune }}</small
+        >
       </p>
-    </div> -->
-    <!-- <p><strong>Date de création :</strong> {{ association.creationDate | date: 'dd/MM/yyyy' }}</p> -->
+    </div>
+    <p>
+      <small><strong>Date de création :</strong> {{ association.creationDate | date: 'dd/MM/yyyy' }}</small>
+    </p>
   </div>
   <div class="card-footer">
     <p class="type" [style.background-color]="association.type.color">
