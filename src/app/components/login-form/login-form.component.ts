@@ -32,8 +32,8 @@ export class LoginFormComponent {
     private toastr: ToastrService
   ) {
     this.loginForm = this.fb.group({
-      email: ['default@example.com', [Validators.required, Validators.email]],
-      password: ['defaultPassword1234*', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
       rememberMe: [false],
     });
   }

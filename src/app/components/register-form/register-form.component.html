@@ -238,10 +238,10 @@
           <h3>Inscription réussie</h3>
           <p>Merci pour votre inscription ! Votre inscription a été réussie.</p>
         </div> -->
-        <div *ngIf="errorMessage" class="error-message">
+        <!-- <div *ngIf="errorMessage" class="error-message">
           <h3>Erreur</h3>
           <p>{{ errorMessage }}</p>
-        </div>
+        </div> -->
         <div class="button-container">
           <button *ngIf="currentStep > 1 && currentStep < 4" type="button" (click)="previousStep()">Précédent</button>
           <button *ngIf="currentStep <= 3" type="submit">Valider</button>

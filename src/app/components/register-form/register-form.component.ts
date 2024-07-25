@@ -44,27 +44,27 @@ export class RegisterFormComponent {
     this.registerForm = this.fb.group({
       account: this.fb.group(
         {
-          email: ['default@example.com', [Validators.required, Validators.email]],
-          password: ['defaultPassword1234*', [Validators.required, passwordValidator]],
-          confirmPassword: ['defaultPassword1234*', [Validators.required]],
+          email: ['', [Validators.required, Validators.email]],
+          password: ['', [Validators.required, passwordValidator]],
+          confirmPassword: ['', [Validators.required]],
         },
         { validators: [confirmPasswordValidator] }
       ),
       user: this.fb.group({
-        firstName: ['John', Validators.required],
-        lastName: ['Doe', Validators.required],
-        phone: ['1234567890', Validators.required],
-        birthDate: ['2000-01-01', Validators.required],
+        firstName: ['', Validators.required],
+        lastName: ['', Validators.required],
+        phone: ['', Validators.required],
+        birthDate: ['', Validators.required],
         gender: ['Homme' as Gender, Validators.required],
       }),
       address: this.fb.group({
-        streetType: ['Rue' as StreetType, Validators.required],
-        streetNumber: ['123', Validators.required],
-        streetName: ['Main St', Validators.required],
-        city: ['Paris', Validators.required],
-        zipCode: ['75000', Validators.required],
-        department: ['Ile-de-France', Validators.required],
-        region: ['Ile-de-France', Validators.required],
+        streetType: ['' as StreetType, Validators.required],
+        streetNumber: ['', Validators.required],
+        streetName: ['', Validators.required],
+        city: ['', Validators.required],
+        zipCode: ['', Validators.required],
+        department: ['', Validators.required],
+        region: ['', Validators.required],
       }),
     });
   }
@@ -112,6 +112,8 @@ export class RegisterFormComponent {
         },
         error: (err: ApiError) => {
           this.errorMessage = err.error.message;
+          this.currentStep = 3;
+          this.toastr.error(err.error.message);
         },
       });
     }
