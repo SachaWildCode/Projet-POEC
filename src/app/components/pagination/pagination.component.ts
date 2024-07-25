@@ -21,13 +21,15 @@ export class PaginationComponent implements OnInit {
   pageRange = 5;
   leftArrow = faArrowLeft;
   rightArrow = faArrowRight;
+  isMobile!: boolean;
+  isTablet!: boolean; // New property for 798px breakpoint
+  isSmallMobile!: boolean; // New property for 385px breakpoint
 
   constructor(
     private router: Router,
     private route: ActivatedRoute
   ) {}
   // media query
-  isMobile = window.innerWidth < 798;
   // on resize if innerwidth is less than 798 then isMobile is true
 
   ngOnInit() {
@@ -42,8 +44,10 @@ export class PaginationComponent implements OnInit {
   }
 
   private updatePageRange() {
-    this.isMobile = window.innerWidth < 798;
-    this.pageRange = this.isMobile ? 2 : 5;
+    this.isSmallMobile = window.innerWidth < 385;
+    this.isMobile = window.innerWidth < 500 && window.innerWidth >= 385;
+    this.isTablet = window.innerWidth < 798 && window.innerWidth >= 500;
+    this.pageRange = this.isSmallMobile ? 0 : this.isMobile ? 1 : this.isTablet ? 2 : 5; // Adjust pageRange based on breakpoints
   }
 
   previous() {

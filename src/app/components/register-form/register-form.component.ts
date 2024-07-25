@@ -4,6 +4,8 @@ import { FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } fr
 import { Router } from '@angular/router';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { ToastrService } from 'ngx-toastr';
+
 import { ApiError } from '../../shared/models/api-error';
 import { IRegisterFormModel } from '../../shared/models/iregister-form-model';
 import { AccountPostRequest, AddressPostRequest, RegisterRequest } from '../../shared/models/register-request';
@@ -32,7 +34,8 @@ export class RegisterFormComponent {
   constructor(
     private fb: NonNullableFormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
     this.initializeForm();
   }
@@ -94,12 +97,12 @@ export class RegisterFormComponent {
         phone: this.registerForm.get('user.phone')?.value ?? '',
         gender: this.registerForm.get('user.gender')?.value ?? 'Autre',
       };
-
       this.authService.register(registerRequest).subscribe({
         next: () => {
           this.router
             .navigate(['/auth/login'])
             .then(() => {
+              this.toastr.success(`Inscription réussie !`);
               this.currentStep = 4;
               this.errorMessage = null;
             })
