@@ -3,17 +3,17 @@
   <ul>
     <li>
       <a [routerLink]="['/profile']" [routerLinkActive]="['is-active']" [routerLinkActiveOptions]="{ exact: true }"
-        ><fa-icon [icon]="faUser" />Mon profil</a
+        ><fa-icon [icon]="faUser" /><span>Mon profil</span></a
       >
     </li>
     <li>
       <a [routerLink]="['/profile', 'donations']" [routerLinkActive]="['is-active']"
-        ><fa-icon [icon]="faCalendar" />Dons programmés</a
+        ><fa-icon [icon]="faCalendar" /><span>Dons programmés</span></a
       >
     </li>
     <li>
       <a [routerLink]="['/profile', 'payments']" [routerLinkActive]="['is-active']"
-        ><fa-icon [icon]="faMoney" />Paiements</a
+        ><fa-icon class="icon" [icon]="faMoney" /><span>Paiements</span></a
       >
     </li>
   </ul>

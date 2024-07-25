@@ -13,14 +13,14 @@
     align-items: center;
 
     .donation-name {
-      flex: 1;
+      flex: 0;
       font-weight: bold;
-      margin-right: 10px;
+      margin-right: 8px;
     }
 
     .donation-slider {
       flex: 2;
-      margin-right: 10px;
+      margin-right: 8px;
     }
 
     .donation-percentage {
@@ -34,5 +34,37 @@
     text-align: right;
     font-weight: bold;
     margin-left: 10px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .donation-card {
+    flex-direction: column;
+    .donation-details {
+      display: flex;
+      align-items: center;
+      flex: 1;
+
+      .donation-name {
+        font-size: 12px;
+        font-weight: bold;
+        margin-right: 8px;
+      }
+
+      .donation-slider {
+        margin-right: 8px;
+      }
+
+      .donation-percentage {
+        text-align: right;
+        flex: 1;
+      }
+    }
+
+    .donation-amount {
+      flex: 0.5;
+      text-align: right;
+      font-weight: bold;
+      margin-left: 10px;
+    }
   }
 }
