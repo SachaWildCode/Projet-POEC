@@ -3,8 +3,8 @@ main {
   gap: 1rem;
   padding: 0.6rem;
   border-radius: 8px;
-  background-color: #e0e0e0;
-
+  backdrop-filter: blur(40px);
+  background-color: rgba(255, 255, 255, 0.5);
   div {
     flex: 4;
     display: flex;
@@ -44,5 +44,31 @@ main {
     flex: 1;
     min-width: 50px;
     box-shadow: var(--button-box-shadow);
+  }
+}
+.btn-filter {
+  display: none;
+}
+@media screen and (max-width: 400px) {
+  main {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 650px) {
+  select {
+    display: none;
+  }
+  .btn-filter {
+    display: block;
+    flex: 1;
+    max-width: 3rem;
+    border-radius: 8px;
+    background-color: var(--color-white);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    &:active {
+      transform: scale(0.9);
+    }
   }
 }
