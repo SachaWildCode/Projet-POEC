@@ -98,3 +98,10 @@
 .card:hover {
   transform: scale(1.02); /* Zoom in effect */
 }
+.donation-count {
+  fa-icon {
+    color: red;
+  }
+
+  font-weight: bold;
+}

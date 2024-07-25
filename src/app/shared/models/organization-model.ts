@@ -13,6 +13,7 @@ export interface Organization {
 }
 
 export interface Content {
+  donationsCount: number;
   id: number;
   name: string;
   sigle: string;
