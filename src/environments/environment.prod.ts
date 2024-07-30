@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://heartlinkback.slghive.fr/api/v1',
+  apiUrl: 'http://springboot:8080/api/v1',
 };
